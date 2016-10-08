@@ -1,0 +1,30 @@
+﻿{
+	"version": 1475848462,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-2.1.1.min.js",
+		"images/card-sheet0.png",
+		"images/card-sheet1.png",
+		"images/zrzutekranu-sheet0.png",
+		"images/zrzutekranu-sheet1.png",
+		"images/zrzutekranu-sheet2.png",
+		"images/btn_blue.png",
+		"images/board.png",
+		"images/tiledbackground.png",
+		"images/tlo-sheet0.png",
+		"media/sfx5.m4a",
+		"media/sfx5.ogg",
+		"media/ui1.m4a",
+		"media/ui1.ogg",
+		"media/upgrade1.m4a",
+		"media/upgrade1.ogg",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png",
+		"parse-1.6.14.min.js"
+	]
+}
