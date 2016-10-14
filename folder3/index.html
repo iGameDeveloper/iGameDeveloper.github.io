@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Pong</title>
+	<title>topdownhumanhunter</title>
 	
 	<!-- Standardised web app manifest -->
 	<link rel="manifest" href="appmanifest.json" />
@@ -61,7 +61,7 @@
 	
 		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
 		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
-		<canvas id="c2canvas" width="854" height="480">
+		<canvas id="c2canvas" width="1280" height="720">
 			<!-- This text is displayed if the visitor's browser does not support HTML5.
 			You can change it, but it is a good idea to link to a description of a browser
 			and provide some links to download some popular HTML5-compatible browsers. -->
@@ -80,7 +80,6 @@
 	<!-- Construct 2 exported games require jQuery. -->
 	<script src="jquery-2.1.1.min.js"></script>
 
-	<script src="airconsole-1.3.0.js"></script>
 
 	
     <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
@@ -108,31 +107,11 @@
 		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
 		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
 		
-		function OnRegisterSWError(e)
+		if (navigator.serviceWorker && navigator.serviceWorker.register)
 		{
-			console.warn("Failed to register service worker: ", e);
-		};
-		
-		// Runtime calls this global method when ready to start caching (i.e. after startup).
-		// This registers the service worker which caches resources for offline support.
-		window.C2_RegisterSW = function C2_RegisterSW()
-		{
-			if (!navigator.serviceWorker)
-				return;		// no SW support, ignore call
-			
-			try {
-				navigator.serviceWorker.register("sw.js", { scope: "./" })
-				.then(function (reg)
-				{
-					console.log("Registered service worker on " + reg.scope);
-				})
-				.catch(OnRegisterSWError);
-			}
-			catch (e)
-			{
-				OnRegisterSWError(e);
-			}
-		};
+			// Register an empty service worker to trigger web app install banners.
+			navigator.serviceWorker.register("sw.js", { scope: "./" });
+		}
     </script>
 </body> 
 </html> 
