@@ -19528,8 +19528,8 @@ cr.behaviors.Anchor = function(runtime)
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Browser,
 	cr.plugins_.Mouse,
-	cr.plugins_.Text,
 	cr.plugins_.TiledBg,
+	cr.plugins_.Text,
 	cr.plugins_.Sprite,
 	cr.plugins_.Touch,
 	cr.behaviors.Anchor,
@@ -19537,8 +19537,15 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.SetVar,
 	cr.system_object.prototype.cnds.CompareVar,
 	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
+	cr.system_object.prototype.cnds.TriggerOnce,
 	cr.system_object.prototype.acts.SetLayerVisible,
 	cr.system_object.prototype.cnds.Else,
 	cr.plugins_.Mouse.prototype.cnds.IsOverObject,
-	cr.plugins_.Mouse.prototype.acts.SetCursor
+	cr.plugins_.Mouse.prototype.acts.SetCursor,
+	cr.system_object.prototype.cnds.IsGroupActive,
+	cr.system_object.prototype.cnds.Every,
+	cr.system_object.prototype.acts.SubVar,
+	cr.plugins_.Sprite.prototype.acts.SetSize,
+	cr.plugins_.Sprite.prototype.exps.Width,
+	cr.plugins_.Sprite.prototype.exps.Height
 ];};
