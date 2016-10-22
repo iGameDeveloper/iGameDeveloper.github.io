@@ -19955,13 +19955,13 @@ cr.behaviors.Timer = function(runtime)
 	behaviorProto.exps = new Exps();
 }());
 cr.getObjectRefTable = function () { return [
+	cr.plugins_.Button,
+	cr.plugins_.Browser,
+	cr.plugins_.Mouse,
 	cr.plugins_.Sprite,
 	cr.plugins_.TextBox,
 	cr.plugins_.Touch,
 	cr.plugins_.AdvTextBox,
-	cr.plugins_.Button,
-	cr.plugins_.Browser,
-	cr.plugins_.Mouse,
 	cr.behaviors.Anchor,
 	cr.behaviors.Timer,
 	cr.system_object.prototype.cnds.CompareVar,
