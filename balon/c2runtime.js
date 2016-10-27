@@ -24090,12 +24090,12 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Button,
 	cr.plugins_.Browser,
 	cr.plugins_.Mouse,
-	cr.plugins_.AdvTextBox,
-	cr.plugins_.TextBox,
-	cr.plugins_.Text,
-	cr.plugins_.TextBoxAddon,
 	cr.plugins_.Sprite,
+	cr.plugins_.Text,
 	cr.plugins_.Touch,
+	cr.plugins_.TextBox,
+	cr.plugins_.TextBoxAddon,
+	cr.plugins_.AdvTextBox,
 	cr.behaviors.Anchor,
 	cr.behaviors.Timer,
 	cr.system_object.prototype.cnds.CompareVar,
@@ -24131,5 +24131,8 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Mouse.prototype.cnds.IsOverObject,
 	cr.plugins_.Mouse.prototype.acts.SetCursor,
 	cr.plugins_.Text.prototype.acts.SetFontColor,
-	cr.system_object.prototype.exps.rgb
+	cr.system_object.prototype.exps.rgb,
+	cr.plugins_.Sprite.prototype.exps.AnimationFrame,
+	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
+	cr.plugins_.Audio.prototype.acts.SetMasterVolume
 ];};
