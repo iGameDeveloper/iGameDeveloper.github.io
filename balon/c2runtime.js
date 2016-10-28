@@ -23810,12 +23810,12 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
 	cr.plugins_.Browser,
 	cr.plugins_.Mouse,
-	cr.plugins_.TextBoxAddon,
-	cr.plugins_.Text,
 	cr.plugins_.TextBox,
-	cr.plugins_.AdvTextBox,
 	cr.plugins_.Sprite,
 	cr.plugins_.Touch,
+	cr.plugins_.TextBoxAddon,
+	cr.plugins_.Text,
+	cr.plugins_.AdvTextBox,
 	cr.behaviors.Anchor,
 	cr.behaviors.Timer,
 	cr.system_object.prototype.cnds.CompareVar,
@@ -23857,5 +23857,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio.prototype.acts.StopAll,
 	cr.plugins_.Sprite.prototype.exps.AnimationFrame,
 	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
-	cr.plugins_.Audio.prototype.acts.SetMasterVolume
+	cr.plugins_.Audio.prototype.acts.SetMasterVolume,
+	cr.system_object.prototype.cnds.EveryTick,
+	cr.plugins_.Sprite.prototype.acts.SetPosToObject
 ];};
