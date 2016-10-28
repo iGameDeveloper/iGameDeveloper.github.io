@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1477600661,
+	"version": 1477654577,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -18,10 +18,10 @@
 		"images/buttonup-sheet0.png",
 		"images/bal-sheet0.png",
 		"images/baner-sheet0.png",
-		"media/wdech1.m4a",
-		"media/wdech1.ogg",
-		"media/wydech.m4a",
-		"media/wydech.ogg",
+		"media/wdech_001.m4a",
+		"media/wdech_001.ogg",
+		"media/wydech_001.m4a",
+		"media/wydech_001.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
