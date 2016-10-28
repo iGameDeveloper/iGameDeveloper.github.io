@@ -23852,6 +23852,9 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Mouse.prototype.acts.SetCursor,
 	cr.plugins_.Text.prototype.acts.SetFontColor,
 	cr.system_object.prototype.exps.rgb,
+	cr.behaviors.Timer.prototype.acts.StopTimer,
+	cr.system_object.prototype.acts.ResetGlobals,
+	cr.plugins_.Audio.prototype.acts.StopAll,
 	cr.plugins_.Sprite.prototype.exps.AnimationFrame,
 	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
 	cr.plugins_.Audio.prototype.acts.SetMasterVolume
