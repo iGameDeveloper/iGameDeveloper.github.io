@@ -23820,6 +23820,7 @@ cr.getObjectRefTable = function () { return [
 	cr.behaviors.Timer,
 	cr.system_object.prototype.cnds.EveryTick,
 	cr.plugins_.Sprite.prototype.acts.SetPosToObject,
+	cr.system_object.prototype.cnds.IsGroupActive,
 	cr.system_object.prototype.cnds.CompareVar,
 	cr.plugins_.TextBox.prototype.acts.SetText,
 	cr.plugins_.Touch.prototype.cnds.OnTouchObject,
@@ -23849,7 +23850,8 @@ cr.getObjectRefTable = function () { return [
 	cr.behaviors.Timer.prototype.acts.StopTimer,
 	cr.system_object.prototype.acts.ResetGlobals,
 	cr.plugins_.Audio.prototype.acts.StopAll,
-	cr.system_object.prototype.cnds.IsGroupActive,
+	cr.plugins_.Text.prototype.acts.SetFontColor,
+	cr.system_object.prototype.exps.rgb,
 	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
 	cr.system_object.prototype.acts.SetLayerVisible,
 	cr.system_object.prototype.cnds.Else,
@@ -23857,7 +23859,5 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Mouse.prototype.acts.SetCursor,
 	cr.plugins_.Sprite.prototype.exps.AnimationFrame,
 	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
-	cr.plugins_.Audio.prototype.acts.SetMasterVolume,
-	cr.plugins_.Text.prototype.acts.SetFontColor,
-	cr.system_object.prototype.exps.rgb
+	cr.plugins_.Audio.prototype.acts.SetMasterVolume
 ];};
