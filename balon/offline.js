@@ -1,10 +1,9 @@
 ﻿{
-	"version": 1478080538,
+	"version": 1478086305,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
 		"jquery-2.1.1.min.js",
-		"images/startbutton-sheet0.png",
 		"images/www2-sheet0.png",
 		"images/rawbutton-sheet0.png",
 		"images/topdefault-sheet0.png",
@@ -15,9 +14,7 @@
 		"images/strona-sheet0.png",
 		"images/strona2-sheet0.png",
 		"images/sprite-sheet0.png",
-		"images/buttonup-sheet0.png",
 		"images/bal-sheet0.png",
-		"images/baner-sheet0.png",
 		"media/wdech_001.m4a",
 		"media/wdech_001.ogg",
 		"media/wydech_001.m4a",
