@@ -22873,13 +22873,13 @@ cr.behaviors.Timer = function(runtime)
 	behaviorProto.exps = new Exps();
 }());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Audio,
 	cr.plugins_.Browser,
+	cr.plugins_.Audio,
 	cr.plugins_.Mouse,
 	cr.plugins_.Sprite,
-	cr.plugins_.Text,
-	cr.plugins_.TextBox,
 	cr.plugins_.Touch,
+	cr.plugins_.TextBox,
+	cr.plugins_.Text,
 	cr.behaviors.Anchor,
 	cr.behaviors.Timer,
 	cr.system_object.prototype.cnds.EveryTick,
