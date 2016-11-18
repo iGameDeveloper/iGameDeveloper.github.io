@@ -1,9 +1,10 @@
 ﻿{
-	"version": 1478992055,
+	"version": 1479463804,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
 		"jquery-2.1.1.min.js",
+		"offlineClient.js",
 		"images/1player-sheet0.png",
 		"images/1player-sheet1.png",
 		"images/1player-sheet2.png",
@@ -82,6 +83,7 @@
 		"images/zegar-sheet0.png",
 		"images/zegar-sheet1.png",
 		"images/zzz-sheet0.png",
+		"images/zzz-sheet1.png",
 		"images/piq51948400x-sheet0.png",
 		"images/sword-sheet0.png",
 		"images/slotarmor-sheet0.png",
@@ -108,7 +110,7 @@
 		"images/slotpistol-sheet1.png",
 		"images/slotpistol-sheet2.png",
 		"images/bullethit-sheet0.png",
-		"images/fbclick-sheet0.png",
+		"images/sprite3-sheet0.png",
 		"images/domtop-sheet0.png",
 		"images/robot-sheet0.png",
 		"images/robot-sheet1.png",
@@ -439,8 +441,6 @@
 		"icon-128.png",
 		"icon-256.png",
 		"loading-logo.png",
-		"channel.html",
-		"channel.html",
 		"jquery.gritter.js",
 		"jquery.gritter.css",
 		"pathfind.js"
