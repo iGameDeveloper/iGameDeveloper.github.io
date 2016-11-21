@@ -18388,6 +18388,332 @@ cr.plugins_.Touch = function(runtime)
 }());
 ;
 ;
+cr.plugins_.hmmg_layoutTransition = function(runtime)
+{
+	this.runtime = runtime;
+};
+var hmmg_animationName = "";
+var hmmg_finishedAnimationName = "";
+(function ()
+{
+	var pluginProto = cr.plugins_.hmmg_layoutTransition.prototype;
+	pluginProto.Type = function(plugin)
+	{
+		this.plugin = plugin;
+		this.runtime = plugin.runtime;
+	};
+	var typeProto = pluginProto.Type.prototype;
+	typeProto.onCreate = function()
+	{
+	};
+	pluginProto.Instance = function(type)
+	{
+		this.type = type;
+		this.runtime = type.runtime;
+	};
+	var instanceProto = pluginProto.Instance.prototype;
+	instanceProto.onCreate = function()
+	{
+		this.hmmg_element = $("body");
+		var self = this ;
+		this.hmmg_element.addClass("animated").on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(a)
+		{
+			hmmg_finishedAnimationName = a.originalEvent.animationName ;
+			if(hmmg_finishedAnimationName.indexOf("Out") != -1)
+			{
+				self.hmmg_element.css("opacity","0");
+			}
+			self.runtime.trigger(cr.plugins_.hmmg_layoutTransition.prototype.cnds.isTransitionFinished, self);
+			self.hmmg_element.removeClass(hmmg_animationName);
+			hmmg_animationName = "";
+		});
+	};
+	instanceProto.onDestroy = function ()
+	{
+	};
+	instanceProto.saveToJSON = function ()
+	{
+		return {
+		};
+	};
+	instanceProto.loadFromJSON = function (o)
+	{
+	};
+	instanceProto.draw = function(ctx)
+	{
+	};
+	instanceProto.drawGL = function (glw)
+	{
+	};
+	function Cnds() {};
+	Cnds.prototype.isTransitionFinished = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.isTransitionFinishedNameEqual = function (index)
+	{
+		var name ;
+		switch (index)
+		{
+			case 0  : name = "bounceIn";break;
+			case 1  : name = "bounceInDown";break;
+			case 2  : name = "bounceInLeft";break;
+			case 3  : name = "bounceInRight";break;
+			case 4  : name = "bounceInUp";break;
+			case 5  : name = "bounceOut";break;
+			case 6  : name = "bounceOutDown";break;
+			case 7  : name = "bounceOutLeft";break;
+			case 8  : name = "bounceOutRight";break;
+			case 9  : name = "bounceOutUp";break;
+			case 10 : name = "fadeIn";break;
+			case 11 : name = "fadeInDown";break;
+			case 12 : name = "fadeInDownBig";break;
+			case 13 : name = "fadeInLeft";break;
+			case 14 : name = "fadeInLeftBig";break;
+			case 15 : name = "fadeInRight";break;
+			case 16 : name = "fadeInRightBig";break;
+			case 17 : name = "fadeInUp";break;
+			case 18 : name = "fadeInUpBig";break;
+			case 19 : name = "fadeOut";break;
+			case 20 : name = "fadeOutDown";break;
+			case 21 : name = "fadeOutDownBig";break;
+			case 22 : name = "fadeOutLeft";break;
+			case 23 : name = "fadeOutLeftBig";break;
+			case 24 : name = "fadeOutRight";break;
+			case 25 : name = "fadeOutRightBig";break;
+			case 26 : name = "fadeOutUp";break;
+			case 27 : name = "fadeOutUpBig";break;
+			case 28 : name = "flipInX";break;
+			case 29 : name = "flipInY";break;
+			case 30 : name = "flipOutX";break;
+			case 31 : name = "flipOutY";break;
+			case 32 : name = "lightSpeedIn";break;
+			case 33 : name = "lightSpeedOut";break;
+			case 34 : name = "rotateIn";break;
+			case 35 : name = "rotateInDownLeft";break;
+			case 36 : name = "rotateInDownRight";break;
+			case 37 : name = "rotateInUpLeft";break;
+			case 38 : name = "rotateInUpRight";break;
+			case 39 : name = "rotateOut";break;
+			case 40 : name = "rotateOutDownLeft";break;
+			case 41 : name = "rotateOutDownRight";break;
+			case 42 : name = "rotateOutUpLeft";break;
+			case 43 : name = "rotateOutUpRight";break;
+			case 44 : name = "rollIn";break;
+			case 45 : name = "rollOut";break;
+			case 46 : name = "zoomIn";break;
+			case 47 : name = "zoomInDown";break;
+			case 48 : name = "zoomInLeft";break;
+			case 49 : name = "zoomInRight";break;
+			case 50 : name = "zoomInUp";break;
+			case 51 : name = "zoomOut";break;
+			case 52 : name = "zoomOutDown";break;
+			case 53 : name = "zoomOutLeft";break;
+			case 54 : name = "zoomOutRight";break;
+			case 55 : name = "zoomOutUp";break;
+			case 56 : name = "slideInDown";break;
+			case 57 : name = "slideInLeft";break;
+			case 58 : name = "slideInRight";break;
+			case 59 : name = "slideInUp";break;
+			case 60 : name = "slideOutDown";break;
+			case 61 : name = "slideOutLeft";break;
+			case 62 : name = "slideOutRight";break;
+			case 63 : name = "slideOutUp";break;
+			default : name = "";break;
+		}
+		if(name == hmmg_finishedAnimationName)
+			return true;
+		else
+			return false;
+	};
+	pluginProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.entranceTransition = function (index , duration ,delay)
+	{
+		if(duration < 0)
+		{
+			this.hmmg_element.hmmgRemoveCss("-webkit-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("-moz-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("-o-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("-ms-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("animation-duration");
+		}
+		else
+		{
+			this.hmmg_element.css(
+			{
+				"-webkit-animation-duration":duration+"s",
+				"-moz-animation-duration":duration+"s",
+				"-o-animation-duration":duration+"s",
+				"-ms-animation-duration":duration+"s",
+				"animation-duration":duration+"s",
+			});
+		}
+		if(delay < 0)
+		{
+			this.hmmg_element.hmmgRemoveCss("-webkit-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("-moz-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("-o-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("-ms-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("animation-delay");
+		}
+		else
+		{
+			this.hmmg_element.css(
+			{
+				"-webkit-animation-delay":delay+"s",
+				"-moz-animation-delay":delay+"s",
+				"-o-animation-delay":delay+"s",
+				"-ms-animation-delay":delay+"s",
+				"animation-delay":delay+"s",
+			});
+		}
+		switch(index)
+		{
+			case 0 : hmmg_animationName = "bounceIn";break;
+			case 1 : hmmg_animationName = "bounceInDown";break;
+			case 2 : hmmg_animationName = "bounceInLeft";break;
+			case 3 : hmmg_animationName = "bounceInRight";break;
+			case 4 : hmmg_animationName = "bounceInUp";break;
+			case 5 : hmmg_animationName = "fadeIn";break;
+			case 6 : hmmg_animationName = "fadeInDown";break;
+			case 7 : hmmg_animationName = "fadeInDownBig";break;
+			case 8 : hmmg_animationName = "fadeInLeft";break;
+			case 9 : hmmg_animationName = "fadeInLeftBig";break;
+			case 10 : hmmg_animationName = "fadeInRight";break;
+			case 11 : hmmg_animationName = "fadeInRightBig";break;
+			case 12 : hmmg_animationName = "fadeInUp";break;
+			case 13 : hmmg_animationName = "fadeInUpBig";break;
+			case 14 : hmmg_animationName = "flipInX";break;
+			case 15 : hmmg_animationName = "flipInY";break;
+			case 16 : hmmg_animationName = "lightSpeedIn";break;
+			case 17 : hmmg_animationName = "rotateIn";break;
+			case 18 : hmmg_animationName = "rotateInDownLeft";break;
+			case 19 : hmmg_animationName = "rotateInDownRight";break;
+			case 20 : hmmg_animationName = "rotateInUpLeft";break;
+			case 21 : hmmg_animationName = "rotateInUpRight";break;
+			case 22 : hmmg_animationName = "rollIn";break;
+			case 23 : hmmg_animationName = "zoomIn";break;
+			case 24 : hmmg_animationName = "zoomInDown";break;
+			case 25 : hmmg_animationName = "zoomInLeft";break;
+			case 26 : hmmg_animationName = "zoomInRight";break;
+			case 27 : hmmg_animationName = "zoomInUp";break;
+			case 28 : hmmg_animationName = "slideInDown";break;
+			case 29 : hmmg_animationName = "slideInLeft";break;
+			case 30 : hmmg_animationName = "slideInRight";break;
+			case 31 : hmmg_animationName = "slideInUp";break;
+			default : hmmg_animationName = "bounceIn";break;
+		}
+		this.hmmg_element.css("opacity","1").addClass(hmmg_animationName);
+	};
+	Acts.prototype.exitTransition = function (index , duration ,delay)
+	{
+		if(duration < 0)
+		{
+			this.hmmg_element.hmmgRemoveCss("-webkit-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("-moz-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("-o-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("-ms-animation-duration");
+			this.hmmg_element.hmmgRemoveCss("animation-duration");
+		}
+		else
+		{
+			this.hmmg_element.css(
+			{
+				"-webkit-animation-duration":duration+"s",
+				"-moz-animation-duration":duration+"s",
+				"-o-animation-duration":duration+"s",
+				"-ms-animation-duration":duration+"s",
+				"animation-duration":duration+"s",
+			});
+		}
+		if(delay < 0)
+		{
+			this.hmmg_element.hmmgRemoveCss("-webkit-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("-moz-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("-o-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("-ms-animation-delay");
+			this.hmmg_element.hmmgRemoveCss("animation-delay");
+		}
+		else
+		{
+			this.hmmg_element.css(
+			{
+				"-webkit-animation-delay":delay+"s",
+				"-moz-animation-delay":delay+"s",
+				"-o-animation-delay":delay+"s",
+				"-ms-animation-delay":delay+"s",
+				"animation-delay":delay+"s",
+			});
+		}
+		switch(index)
+		{
+			case 0 : hmmg_animationName = "bounceOut";break;
+			case 1 : hmmg_animationName = "bounceOutDown";break;
+			case 2 : hmmg_animationName = "bounceOutLeft";break;
+			case 3 : hmmg_animationName = "bounceOutRight";break;
+			case 4 : hmmg_animationName = "bounceOutUp";break;
+			case 5 : hmmg_animationName = "fadeOut";break;
+			case 6 : hmmg_animationName = "fadeOutDown";break;
+			case 7 : hmmg_animationName = "fadeOutDownBig";break;
+			case 8 : hmmg_animationName = "fadeOutLeft";break;
+			case 9 : hmmg_animationName = "fadeOutLeftBig";break;
+			case 10 : hmmg_animationName = "fadeOutRight";break;
+			case 11 : hmmg_animationName = "fadeOutRightBig";break;
+			case 12 : hmmg_animationName = "fadeOutUp";break;
+			case 13 : hmmg_animationName = "fadeOutUpBig";break;
+			case 14 : hmmg_animationName = "flipOutX";break;
+			case 15 : hmmg_animationName = "flipOutY";break;
+			case 16 : hmmg_animationName = "lightSpeedOut";break;
+			case 17 : hmmg_animationName = "rotateOut";break;
+			case 18 : hmmg_animationName = "rotateOutDownLeft";break;
+			case 19 : hmmg_animationName = "rotateOutDownRight";break;
+			case 20 : hmmg_animationName = "rotateOutUpLeft";break;
+			case 21 : hmmg_animationName = "rotateOutUpRight";break;
+			case 22 : hmmg_animationName = "rollOut";break;
+			case 23 : hmmg_animationName = "zoomOut";break;
+			case 24 : hmmg_animationName = "zoomOutDown";break;
+			case 25 : hmmg_animationName = "zoomOutLeft";break;
+			case 26 : hmmg_animationName = "zoomOutRight";break;
+			case 27 : hmmg_animationName = "zoomOutUp";break;
+			case 28 : hmmg_animationName = "slideOutDown";break;
+			case 29 : hmmg_animationName = "slideOutLeft";break;
+			case 30 : hmmg_animationName = "slideOutRight";break;
+			case 31 : hmmg_animationName = "slideOutUp";break;
+			default : hmmg_animationName = "bounceOut";break;
+		}
+		this.hmmg_element.addClass(hmmg_animationName);
+	};
+	pluginProto.acts = new Acts();
+	function Exps() {};
+	Exps.prototype.FinishedTransitionName = function (ret)	// 'ret' must always be the first parameter - always return the expression's result through it!
+	{
+		ret.set_string(hmmg_finishedAnimationName);
+	};
+	pluginProto.exps = new Exps();
+}());
+$.fn.hmmgRemoveCss=function(toDelete)
+{
+	if(typeof($(this).attr('style')) != "undefined")
+	{
+		var props=$(this).attr('style').split(';');
+		var tmp=-1;
+		for( var p=0;p<props.length; p++)
+		{
+			if(props[p].indexOf(toDelete)!==-1)
+			{
+				tmp=p;
+			}
+		};
+		if(tmp!==-1)
+		{
+		   delete props[tmp];
+		}
+		  return $(this).attr('style',props.join(';')+';');
+	}
+}
+;
+;
 cr.plugins_.rex_youtube_player = function(runtime)
 {
 	this.runtime = runtime;
@@ -19153,6 +19479,7 @@ cr.behaviors.scrollto = function(runtime)
 	behaviorProto.acts = new Acts();
 }());
 cr.getObjectRefTable = function () { return [
+	cr.plugins_.hmmg_layoutTransition,
 	cr.plugins_.Text,
 	cr.plugins_.rex_youtube_player,
 	cr.plugins_.TiledBg,
@@ -19170,6 +19497,8 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.exps.layerscale,
 	cr.system_object.prototype.exps.scrolly,
 	cr.plugins_.Touch.prototype.cnds.OnTouchEnd,
+	cr.system_object.prototype.cnds.OnLayoutStart,
+	cr.plugins_.hmmg_layoutTransition.prototype.acts.entranceTransition,
 	cr.system_object.prototype.cnds.EveryTick,
 	cr.plugins_.Text.prototype.acts.SetText,
 	cr.system_object.prototype.cnds.Every,
@@ -19182,4 +19511,3 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.SubVar,
 	cr.system_object.prototype.acts.AddVar
 ];};
-
