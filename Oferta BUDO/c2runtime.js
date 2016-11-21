@@ -19480,10 +19480,10 @@ cr.behaviors.scrollto = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.hmmg_layoutTransition,
-	cr.plugins_.Text,
-	cr.plugins_.rex_youtube_player,
-	cr.plugins_.TiledBg,
 	cr.plugins_.Sprite,
+	cr.plugins_.Text,
+	cr.plugins_.TiledBg,
+	cr.plugins_.rex_youtube_player,
 	cr.plugins_.Touch,
 	cr.behaviors.scrollto,
 	cr.plugins_.Touch.prototype.cnds.OnTouchStart,
