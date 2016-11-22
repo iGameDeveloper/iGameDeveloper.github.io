@@ -22529,13 +22529,13 @@ cr.behaviors.scrollto = function(runtime)
 	behaviorProto.acts = new Acts();
 }());
 cr.getObjectRefTable = function () { return [
+	cr.plugins_.Audio,
+	cr.plugins_.hmmg_layoutTransition,
 	cr.plugins_.rex_youtube_player,
 	cr.plugins_.Text,
 	cr.plugins_.TiledBg,
 	cr.plugins_.Sprite,
 	cr.plugins_.Touch,
-	cr.plugins_.Audio,
-	cr.plugins_.hmmg_layoutTransition,
 	cr.behaviors.scrollto,
 	cr.plugins_.Touch.prototype.cnds.OnTouchStart,
 	cr.system_object.prototype.cnds.CompareVar,
