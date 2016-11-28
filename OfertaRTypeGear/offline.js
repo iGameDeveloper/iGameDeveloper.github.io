@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1480347593,
+	"version": 1480359769,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -29,6 +29,7 @@
 		"images/bo_warrior-sheet0.png",
 		"images/zrzutekranu2-sheet0.png",
 		"images/zrzutekranu3-sheet0.png",
+		"images/sl-sheet0.png",
 		"media/swing2.m4a",
 		"media/swing2.ogg",
 		"icon-16.png",
