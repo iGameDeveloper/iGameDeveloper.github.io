@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1479984795,
+	"version": 1480345272,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -21,11 +21,14 @@
 		"images/111thickbox_default-sheet0.png",
 		"images/cam-sheet0.png",
 		"images/112thickbox_default-sheet0.png",
+		"images/112thickbox_default-sheet1.png",
 		"images/blu-sheet0.png",
 		"images/blu-sheet1.png",
 		"images/sprite4-sheet0.png",
 		"images/16d7bac447d99fc4f814ab5abd-sheet0.png",
 		"images/zrzutekranu-sheet0.png",
+		"images/bo_warrior-sheet0.png",
+		"images/zrzutekranu2-sheet0.png",
 		"media/swing2.m4a",
 		"media/swing2.ogg",
 		"icon-16.png",
