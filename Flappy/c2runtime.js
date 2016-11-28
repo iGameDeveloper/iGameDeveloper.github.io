@@ -20664,6 +20664,7 @@ cr.getObjectRefTable = function () { return [
 	cr.behaviors.Platform.prototype.acts.SetVectorY,
 	cr.plugins_.Sprite.prototype.acts.SetAngle,
 	cr.plugins_.Touch.prototype.cnds.OnTouchStart,
+	cr.plugins_.Sprite.prototype.acts.SetVisible,
 	cr.system_object.prototype.cnds.EveryTick,
 	cr.plugins_.Sprite.prototype.acts.RotateClockwise,
 	cr.system_object.prototype.exps.dt,
