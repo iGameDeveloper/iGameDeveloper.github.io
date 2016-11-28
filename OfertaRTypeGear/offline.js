@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1480346717,
+	"version": 1480347593,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -23,12 +23,12 @@
 		"images/112thickbox_default-sheet0.png",
 		"images/112thickbox_default-sheet1.png",
 		"images/blu-sheet0.png",
-		"images/blu-sheet1.png",
 		"images/sprite4-sheet0.png",
 		"images/16d7bac447d99fc4f814ab5abd-sheet0.png",
 		"images/zrzutekranu-sheet0.png",
 		"images/bo_warrior-sheet0.png",
 		"images/zrzutekranu2-sheet0.png",
+		"images/zrzutekranu3-sheet0.png",
 		"media/swing2.m4a",
 		"media/swing2.ogg",
 		"icon-16.png",
