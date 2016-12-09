@@ -1,6 +1,6 @@
 ﻿{
-	"name": "kolofortuny",
-	"short_name": "kolofortuny",
+	"name": "WheelOfFortune",
+	"short_name": "WheelOfFortune",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
