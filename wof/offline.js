@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1481555438,
+	"version": 1481571916,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -9,6 +9,8 @@
 		"images/sprite2-sheet0.png",
 		"images/strzalka-sheet0.png",
 		"images/typowana-sheet0.png",
+		"media/fanfare.m4a",
+		"media/fanfare.ogg",
 		"media/button_1.m4a",
 		"media/button_1.ogg",
 		"icon-16.png",
