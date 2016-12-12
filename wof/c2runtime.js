@@ -21424,7 +21424,8 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.SubVar,
 	cr.plugins_.Touch.prototype.cnds.OnTouchObject,
 	cr.system_object.prototype.acts.SetVar,
-	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
 	cr.system_object.prototype.acts.AddVar,
+	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
+	cr.system_object.prototype.acts.Wait,
 	cr.plugins_.Audio.prototype.acts.Play
 ];};
