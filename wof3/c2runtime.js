@@ -21404,8 +21404,8 @@ cr.behaviors.Pin = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
-	cr.plugins_.Text,
 	cr.plugins_.Sprite,
+	cr.plugins_.Text,
 	cr.plugins_.Touch,
 	cr.behaviors.Pin,
 	cr.system_object.prototype.cnds.IsGroupActive,
