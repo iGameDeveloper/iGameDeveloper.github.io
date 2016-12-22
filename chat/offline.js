@@ -1,10 +1,11 @@
 ﻿{
-	"version": 1482393243,
+	"version": 1482394073,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
 		"jquery-2.1.1.min.js",
 		"offlineClient.js",
+		"images/spritefont.png",
 		"media/mesage.m4a",
 		"media/mesage.ogg",
 		"media/tap.m4a",
