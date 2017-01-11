@@ -1,0 +1,32 @@
+﻿{
+	"name": "Hotline",
+	"version": "1.0.0.0",
+	"description": "",
+	"id": "",
+	"viewport-width": 480,
+	"viewport-height": 300,
+	"author": "",
+	"email": "",
+	"website": "",
+	"orientations": "any",
+	"c2version": "241",
+	"used-plugins": [
+		"Audio",
+		"Keyboard",
+		"Mouse",
+		"Particles",
+		"Sprite",
+		"Spritefont2",
+		"Text",
+		"TiledBg"
+	],
+	"used-behaviors": [
+		"Bullet",
+		"EightDir",
+		"LOS",
+		"Pathfinding",
+		"Sin",
+		"scrollto",
+		"solid"
+	]
+}
