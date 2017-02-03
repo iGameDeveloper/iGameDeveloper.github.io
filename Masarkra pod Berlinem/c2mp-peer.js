@@ -14,6 +14,21 @@
 
 	var MAGIC_NUMBER = 0x63326D70;	// to identify non-fragmented messages originating from this protocol
 	
+	// In some circumstances calling close() can throw an exception (e.g. if it already got closed by system sleep).
+	// Avoid this crashing the game by swallowing any exceptions.
+	function closeIgnoreException(o)
+	{
+		if (!o)
+			return;
+		
+		try {
+			o.close();
+		}
+		catch (e)
+		{
+		}
+	};
+	
 	function Peer(mp_, id_, alias_)
 	{
 		this.mp = mp_;
@@ -1217,19 +1232,15 @@
 			"r": reason
 		}));
 		
-		if (this.dco)
-			this.dco.close();
-		if (this.dcr)
-			this.dcr.close();
-		if (this.dcu)
-			this.dcu.close();
-		if (this.pc)
-			this.pc.close();
+		closeIgnoreException(this.dco);
+		closeIgnoreException(this.dcr);
+		closeIgnoreException(this.dcu);
+		closeIgnoreException(this.pc);
 		
-		this.pc = null;
 		this.dco = null;
 		this.dcr = null;
 		this.dcu = null;
+		this.pc = null;
 		this.isOOpen = false;
 		this.isROpen = false;
 		this.isUOpen = false;

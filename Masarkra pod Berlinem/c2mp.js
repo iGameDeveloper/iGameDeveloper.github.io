@@ -333,7 +333,7 @@
 		
 		this.sigws.onerror = function (e)
 		{
-			console.error("Signalling server error: " + e);
+			console.error("Signalling server error: ", e);
 			
 			if (self.onsignallingerror)
 				self.onsignallingerror(e);
