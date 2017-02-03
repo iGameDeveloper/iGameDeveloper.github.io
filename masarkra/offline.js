@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486139418,
+	"version": 1486140659,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -263,8 +263,8 @@
 		"media/app interface click.ogg",
 		"media/cannon.m4a",
 		"media/cannon.ogg",
-		"media/053-cannon02.m4a",
-		"media/053-cannon02.ogg",
+		"media/cannon2.m4a",
+		"media/cannon2.ogg",
 		"media/deep hitech ui sound 2.m4a",
 		"media/deep hitech ui sound 2.ogg",
 		"media/buy item.m4a",
