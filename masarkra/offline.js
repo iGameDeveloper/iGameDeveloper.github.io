@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486138290,
+	"version": 1486139418,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -261,8 +261,8 @@
 		"media/turret_rocket_fire.ogg",
 		"media/app interface click.m4a",
 		"media/app interface click.ogg",
-		"media/052-cannon01.m4a",
-		"media/052-cannon01.ogg",
+		"media/cannon.m4a",
+		"media/cannon.ogg",
 		"media/053-cannon02.m4a",
 		"media/053-cannon02.ogg",
 		"media/deep hitech ui sound 2.m4a",
