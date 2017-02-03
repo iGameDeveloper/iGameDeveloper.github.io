@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486127555,
+	"version": 1486137702,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -290,6 +290,7 @@
 		"c2mp-peer.js",
 		"c2mp.js",
 		"waker.js",
+		"firebase.js",
 		"parse-1.6.14.min.js",
 		"adapter.js",
 		"jquery.gritter.js",

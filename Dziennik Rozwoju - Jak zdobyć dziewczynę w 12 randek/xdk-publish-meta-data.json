@@ -1,0 +1,41 @@
+{
+  "categorization": {
+    "type": "APPLICATION",
+    "category": "Communication"
+  },
+  "description": {
+    "texts": {
+      "title": "CzatujemyPL",
+      "features": [
+        ""
+      ],
+      "short-description": "",
+      "full-description": "",
+      "keywords": "czat, chat, czatowanie, czatujemy, chati, czateria,",
+      "recent-changes": "",
+      "privacy-policy": "",
+      "eula": ""
+    },
+    "images": {
+      "screenshots": [],
+      "app-icon-small": "",
+      "app-icon": "",
+      "small-promo": "",
+      "large-promo": ""
+    },
+    "videos": {
+      "video-url": ""
+    }
+  },
+  "packages": {
+    "apk-file": "",
+    "zip-xdk-compliant": false,
+    "zip-file": "",
+    "secondary-apk-file": ""
+  },
+  "support": {
+    "email": "",
+    "website": ""
+  },
+  "testing-instructions": ""
+}
