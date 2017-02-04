@@ -4,8 +4,8 @@
 <!--To change the contents of this file, see the documentation on the intelxdk.config.additions.xml file.-->
 <intelxdk:version value="1.1"/>
 <intelxdk:cordova-cli version="6.2.0"/>
-<name>czatujemy</name>
+<name>czat2</name>
 <content src="index.html"/>
 <access origin="*"/>
-<!--creationInfo:{"src":"","projectTypeName":"com.intel.xdk.projecttype.jsapp"}-->
+<!--creationInfo:{"src":"","projectTypeName":"com.intel.xdk.projecttype.webapp"}-->
 <preference name="debuggable" value="false"/></widget>

@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "",
       "projectGuid": "deab99a6-9344-495f-9d45-4211ef0dbb75",
-      "lastModifiedDate": 1486134197305,
+      "lastModifiedDate": 1486145145185,
       "creationDate": 1486134045133
     },
     "testDirectory": "test",
@@ -40,12 +40,13 @@
           "android-targetSdkVersion": "23",
           "android-installLocation": "auto",
           "android-signed": true,
-          "Orientation": "portrait"
+          "Orientation": "portrait",
+          "Fullscreen": true
         },
         "isActive_": true,
         "certificateId_": "vuRA44iFFkSUaiFLHyOSHg2",
         "appName_": "Dziennik Pawel Grzywocz",
-        "appID_": "pl.igamedev.jakzdobucdziewczyne",
+        "appID_": "pl.dziennik.igdev",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
