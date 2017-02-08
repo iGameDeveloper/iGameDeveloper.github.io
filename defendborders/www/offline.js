@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486557313,
+	"version": 1486566125,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -8,7 +8,6 @@
 		"images/celownik-sheet0.png",
 		"images/tiledbackground.png",
 		"images/bullet-sheet0.png",
-		"images/boundary-sheet0.png",
 		"images/player-sheet0.png",
 		"images/tiledbackground2.png",
 		"images/fence_idea-sheet0.png",
@@ -25,7 +24,6 @@
 		"images/zrzutekranu-sheet0.png",
 		"images/tarcza-sheet0.png",
 		"images/tarcza2-sheet0.png",
-		"images/hole-sheet0.png",
 		"images/dirthit_2-sheet0.png",
 		"images/dirthit_2-sheet1.png",
 		"images/dirthit_2-sheet2.png",
