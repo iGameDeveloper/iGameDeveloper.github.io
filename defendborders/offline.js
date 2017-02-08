@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486578033,
+	"version": 1486591353,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -29,8 +29,6 @@
 		"images/dirthit_2-sheet2.png",
 		"images/lens-sheet0.png",
 		"images/dog-sheet0.png",
-		"images/dog-sheet1.png",
-		"images/dog-sheet2.png",
 		"images/sprite-sheet0.png",
 		"images/firesmall-sheet0.png",
 		"images/firesmall-sheet1.png",
@@ -120,6 +118,8 @@
 		"icon-128.png",
 		"icon-256.png",
 		"loading-logo.png",
-		"firebase.js"
+		"firebase.js",
+		"jquery.gritter.js",
+		"jquery.gritter.css"
 	]
 }
