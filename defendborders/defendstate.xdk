@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "",
       "projectGuid": "da3455b2-9679-435c-8520-2f8d55d47c71",
-      "lastModifiedDate": 1486558296989,
+      "lastModifiedDate": 1486578408626,
       "creationDate": 1486558203015
     },
     "testDirectory": "test",
@@ -39,19 +39,22 @@
           "android-minSdkVersion": "14",
           "android-targetSdkVersion": "23",
           "android-installLocation": "auto",
-          "android-signed": true
+          "android-signed": true,
+          "Fullscreen": true,
+          "Orientation": "landscape"
         },
         "isActive_": true,
-        "certificateId_": "vuRA44iFFkSUaiFLHyOSHg2",
-        "appName_": "defendstate",
-        "appID_": "not.yet.specified",
+        "certificateId_": "RUCCvl9liUK6s7oJflBeXg2",
+        "appName_": "Defend State Borders",
+        "appID_": "pl.igamedev.defendstate",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "addlPermissions_": "",
         "icons_": [],
@@ -60,7 +63,9 @@
         "appVersionCode_": "1",
         "signed_": true,
         "crosswalkVersion_": "19",
-        "cordovaCLIVersion_": "6.2.0"
+        "cordovaCLIVersion_": "6.2.0",
+        "appDescription_": "",
+        "appAuthor_": ""
       },
       "iOS": {
         "platform_": "ios",
@@ -70,7 +75,7 @@
           "deployment-target": "8.0",
           "ios-configuration": "adhoc"
         },
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appName_": "defendstate",
         "appID_": "not.yet.specified",
@@ -94,7 +99,7 @@
         "runtime_": "W3C on Cordova",
         "name_": "Windows8",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appName_": "defendstate",
         "appID_": "not.yet.specified",
@@ -117,7 +122,7 @@
         "runtime_": "W3C",
         "name_": "WebApp",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appVersion_": "0.0.1"
       },
@@ -135,7 +140,7 @@
         "runtime_": "W3C on Chrome OS",
         "name_": "Chrome",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appName_": "defendstate",
         "appID_": "not.yet.specified",
