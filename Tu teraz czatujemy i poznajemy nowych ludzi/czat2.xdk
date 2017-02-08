@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "",
       "projectGuid": "afc88fb2-7607-456a-a60a-d133a976457e",
-      "lastModifiedDate": 1486158857332,
+      "lastModifiedDate": 1486463500554,
       "creationDate": 1486158661859
     },
     "testDirectory": "test",
@@ -46,7 +46,7 @@
         "isActive_": true,
         "certificateId_": "RUCCvl9liUK6s7oJflBeXg2",
         "appName_": "CzatujemyPL ",
-        "appID_": "pl.czatujemy.igamedev",
+        "appID_": "pl.igamedev.czatujemyPL",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -59,7 +59,7 @@
         "icons_": [],
         "splashes_": [],
         "appVersion_": "0.8.5",
-        "appVersionCode_": "7",
+        "appVersionCode_": "9",
         "signed_": true,
         "crosswalkVersion_": "19",
         "cordovaCLIVersion_": "6.2.0",
