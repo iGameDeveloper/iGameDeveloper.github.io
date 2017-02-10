@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-media": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "com.appodeal.googleplayservices": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },
     "dependent_plugins": {

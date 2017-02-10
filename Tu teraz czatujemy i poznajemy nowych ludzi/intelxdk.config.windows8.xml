@@ -7,5 +7,9 @@
 <name>czat2</name>
 <content src="index.html"/>
 <access origin="*"/>
+<intelxdk:plugin intelxdk:name="Compat" intelxdk:value="cordova-plugin-compat" intelxdk:version="1.0.0" intelxdk:checksum="61c62eb" intelxdk:type="file"/>
+<intelxdk:plugin intelxdk:name="File" intelxdk:value="cordova-plugin-file" intelxdk:version="4.2.0" intelxdk:checksum="1fdd7f27" intelxdk:type="file"/>
+<intelxdk:plugin intelxdk:name="Media" intelxdk:value="cordova-plugin-media" intelxdk:version="2.3.0" intelxdk:checksum="b7de5c90" intelxdk:type="file"/>
+<intelxdk:plugin intelxdk:name="Google Play Services Plugin" intelxdk:value="com.appodeal.googleplayservices" intelxdk:version="7.8.0" intelxdk:checksum="ab2963f2" intelxdk:type="file"/>
 <!--creationInfo:{"src":"","projectTypeName":"com.intel.xdk.projecttype.jsapp"}-->
 <preference name="debuggable" value="false"/></widget>

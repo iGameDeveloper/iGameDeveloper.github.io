@@ -1,0 +1,14 @@
+{
+    "version": "7.8.0",
+    "name": "com.appodeal.googleplayservices",
+    "cordova_name": "Google Play Services (Android)",
+    "platforms": [
+        "android"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}
