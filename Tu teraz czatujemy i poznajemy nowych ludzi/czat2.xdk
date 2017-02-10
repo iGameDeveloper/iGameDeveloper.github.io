@@ -2,10 +2,10 @@
   "project": {
     "creationData": {
       "type": "Import",
-      "projectTypeName": "com.intel.xdk.projecttype.webapp",
+      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "afc88fb2-7607-456a-a60a-d133a976457e",
-      "lastModifiedDate": 1486463500554,
+      "lastModifiedDate": 1486718460037,
       "creationDate": 1486158661859
     },
     "testDirectory": "test",
@@ -33,7 +33,7 @@
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
-        "runtime_": "W3C on Crosswalk",
+        "runtime_": "Crosswalk with Cordova 3.x",
         "name_": "Android",
         "preferences_": {
           "android-minSdkVersion": "14",
@@ -59,7 +59,7 @@
         "icons_": [],
         "splashes_": [],
         "appVersion_": "0.8.5",
-        "appVersionCode_": "9",
+        "appVersionCode_": "12",
         "signed_": true,
         "crosswalkVersion_": "19",
         "cordovaCLIVersion_": "6.2.0",
@@ -67,7 +67,7 @@
       },
       "iOS": {
         "platform_": "ios",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
           "deployment-target": "8.0",
@@ -94,7 +94,7 @@
       },
       "Windows8": {
         "platform_": "windows8",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": false,
@@ -129,7 +129,7 @@
         "runtime_": "W3C on Firefox OS",
         "name_": "Firefox",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appVersion_": "0.0.1"
       },
@@ -151,13 +151,13 @@
         "runtime_": "W3C on Facebook",
         "name_": "Facebook",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appVersion_": "0.0.1"
       },
       "WP81": {
         "platform_": "wp81",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "WP81",
         "preferences_": {},
         "isActive_": true,
@@ -182,6 +182,8 @@
     "serviceMethods": [],
     "sourceDirectory": "www",
     "startFile": "index.html",
-    "projectSettingsVersion": "3.0.0"
+    "projectSettingsVersion": "3.0.0",
+    "cordovaPluginsDirectory": "plugins",
+    "cordovaPlugins": []
   }
 }

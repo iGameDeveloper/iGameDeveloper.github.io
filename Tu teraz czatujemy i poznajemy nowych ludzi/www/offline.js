@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486647534,
+	"version": 1486723247,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -61,6 +61,8 @@
 		"media/soundscrate-scifi-laser2_001.ogg",
 		"media/pickupammo.m4a",
 		"media/pickupammo.ogg",
+		"media/button4.m4a",
+		"media/button4.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
