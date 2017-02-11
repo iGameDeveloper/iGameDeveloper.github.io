@@ -2,10 +2,10 @@
   "project": {
     "creationData": {
       "type": "Import",
-      "projectTypeName": "com.intel.xdk.projecttype.webapp",
+      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "da3455b2-9679-435c-8520-2f8d55d47c71",
-      "lastModifiedDate": 1486647867598,
+      "lastModifiedDate": 1486805071149,
       "creationDate": 1486558203015
     },
     "testDirectory": "test",
@@ -33,7 +33,7 @@
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
-        "runtime_": "W3C on Crosswalk",
+        "runtime_": "Crosswalk with Cordova 3.x",
         "name_": "Android",
         "preferences_": {
           "android-minSdkVersion": "14",
@@ -69,7 +69,7 @@
       },
       "iOS": {
         "platform_": "ios",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
           "deployment-target": "8.0",
@@ -96,7 +96,7 @@
       },
       "Windows8": {
         "platform_": "windows8",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": false,
@@ -131,7 +131,7 @@
         "runtime_": "W3C on Firefox OS",
         "name_": "Firefox",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appVersion_": "0.0.1"
       },
@@ -153,13 +153,13 @@
         "runtime_": "W3C on Facebook",
         "name_": "Facebook",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appVersion_": "0.0.1"
       },
       "WP81": {
         "platform_": "wp81",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "WP81",
         "preferences_": {},
         "isActive_": true,
@@ -184,6 +184,8 @@
     "serviceMethods": [],
     "sourceDirectory": "www",
     "startFile": "index.html",
-    "projectSettingsVersion": "3.0.0"
+    "projectSettingsVersion": "3.0.0",
+    "cordovaPluginsDirectory": "plugins",
+    "cordovaPlugins": []
   }
 }

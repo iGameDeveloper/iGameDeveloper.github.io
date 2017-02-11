@@ -7,19 +7,12 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-media": {
+        "com.appodeal.googleplayservices": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "com.appodeal.googleplayservices": {
+        "cordova-plugin-speechrecognizer": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        }
-    }
+    "dependent_plugins": {}
 }

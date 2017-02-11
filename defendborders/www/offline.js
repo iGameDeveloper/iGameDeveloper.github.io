@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1486578033,
+	"version": 1486805259,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -29,8 +29,6 @@
 		"images/dirthit_2-sheet2.png",
 		"images/lens-sheet0.png",
 		"images/dog-sheet0.png",
-		"images/dog-sheet1.png",
-		"images/dog-sheet2.png",
 		"images/sprite-sheet0.png",
 		"images/firesmall-sheet0.png",
 		"images/firesmall-sheet1.png",
@@ -110,6 +108,8 @@
 		"media/warczy_001.ogg",
 		"media/zagryza_001.m4a",
 		"media/zagryza_001.ogg",
+		"media/incoming message 5.m4a",
+		"media/incoming message 5.ogg",
 		"media/1lv_001.m4a",
 		"media/1lv_001.ogg",
 		"media/afganistan.m4a",
@@ -120,6 +120,8 @@
 		"icon-128.png",
 		"icon-256.png",
 		"loading-logo.png",
-		"firebase.js"
+		"firebase.js",
+		"jquery.gritter.js",
+		"jquery.gritter.css"
 	]
 }

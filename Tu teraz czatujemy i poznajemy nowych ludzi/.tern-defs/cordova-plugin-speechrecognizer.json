@@ -1,0 +1,12 @@
+{
+    "!name": "cordova-plugin-speechrecognizer",
+    "!define": {
+        "!modules": {
+            "SpeechRecognizer": {}
+        }
+    },
+    "!plugin-version": "1.0.0",
+    "plugins": {
+        "speechrecognizer": "!modules.SpeechRecognizer"
+    }
+}
