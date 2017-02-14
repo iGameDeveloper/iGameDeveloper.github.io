@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1487071469,
+	"version": 1487077127,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -44,6 +44,7 @@
 		"images/stockvectorisometricfenceinlightcolorsisolatedonwhitenosolidfenceirongateopenandclosefrom-sheet0.png",
 		"images/sprite3-sheet0.png",
 		"images/sprite4-sheet0.png",
+		"images/score.png",
 		"media/gun.m4a",
 		"media/gun.ogg",
 		"media/hurtfemale.m4a",
