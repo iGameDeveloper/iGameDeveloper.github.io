@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1487103216,
+	"version": 1487228524,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -45,6 +45,7 @@
 		"images/sprite3-sheet0.png",
 		"images/sprite4-sheet0.png",
 		"images/score.png",
+		"images/border-sheet0.png",
 		"media/gun.m4a",
 		"media/gun.ogg",
 		"media/hurtfemale.m4a",
