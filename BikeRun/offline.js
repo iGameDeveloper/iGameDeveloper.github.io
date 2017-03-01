@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1488201775,
+	"version": 1488372506,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -42,9 +42,8 @@
 		"images/touch_break_rear-sheet0.png",
 		"images/touch_break_front-sheet0.png",
 		"images/touch_break_front-sheet1.png",
-		"images/bird-sheet0.png",
 		"images/sprite2-sheet0.png",
-		"images/spritefont.png",
+		"images/gearfont.png",
 		"media/motor idle.m4a",
 		"media/motor idle.ogg",
 		"media/motor gaz (2.1).m4a",
