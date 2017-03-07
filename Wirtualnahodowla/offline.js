@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1488923316,
+	"version": 1488924045,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -39,6 +39,7 @@
 		"images/d2fc0ffca73617115c84556655c52cc-sheet0.png",
 		"images/beeslife-sheet0.png",
 		"images/akaubinmaki-sheet0.png",
+		"images/zrzutekranu-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/dzień.m4a",
