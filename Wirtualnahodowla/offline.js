@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1488924045,
+	"version": 1488927323,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -22,7 +22,6 @@
 		"images/iconpylek-sheet1.png",
 		"images/iconpylek-sheet2.png",
 		"images/beehiveclipart-sheet0.png",
-		"images/tiledbackground.png",
 		"images/tiledbackground2.png",
 		"images/beeinul-sheet0.png",
 		"images/queen-sheet0.png",
@@ -40,6 +39,9 @@
 		"images/beeslife-sheet0.png",
 		"images/akaubinmaki-sheet0.png",
 		"images/zrzutekranu-sheet0.png",
+		"images/tiledsprite-sheet0.png",
+		"images/tiledsprite2-sheet0.png",
+		"images/tiledsprite2-sheet1.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/dzień.m4a",
