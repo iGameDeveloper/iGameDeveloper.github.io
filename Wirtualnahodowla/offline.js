@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1488967316,
+	"version": 1488990833,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -9,6 +9,7 @@
 		"images/1ul-sheet1.png",
 		"images/1pszczola-sheet0.png",
 		"images/1kwiat-sheet0.png",
+		"images/1kwiat-sheet1.png",
 		"images/cell-sheet0.png",
 		"images/cell-sheet1.png",
 		"images/cell-sheet2.png",
@@ -42,6 +43,9 @@
 		"images/tiledsprite-sheet0.png",
 		"images/tiledsprite2-sheet0.png",
 		"images/tiledsprite2-sheet1.png",
+		"images/kwiatki-sheet0.png",
+		"images/kwiatki-sheet1.png",
+		"images/kwiatki-sheet2.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/dzień.m4a",
