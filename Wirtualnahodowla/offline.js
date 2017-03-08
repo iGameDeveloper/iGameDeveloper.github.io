@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1488992519,
+	"version": 1488998430,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -48,6 +48,8 @@
 		"images/kwiatki-sheet2.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
+		"media/special bonus item.m4a",
+		"media/special bonus item.ogg",
 		"media/dzień.m4a",
 		"media/dzień.ogg",
 		"media/noc.m4a",
