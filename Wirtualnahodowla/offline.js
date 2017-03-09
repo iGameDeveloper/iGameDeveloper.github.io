@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489095335,
+	"version": 1489102009,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -11,6 +11,7 @@
 		"images/1kwiat-sheet0.png",
 		"images/1kwiat-sheet1.png",
 		"images/cell-sheet0.png",
+		"images/cell-sheet1.png",
 		"images/osa2-sheet0.png",
 		"images/osa2-sheet1.png",
 		"images/pt5orz5ec-sheet0.png",
@@ -52,6 +53,7 @@
 		"images/workerbeeleft_-sheet1.png",
 		"images/workerbeeleft_-sheet2.png",
 		"images/cellkursor-sheet0.png",
+		"images/cellkursor-sheet1.png",
 		"images/timerbuilding-sheet0.png",
 		"images/panel-sheet0.png",
 		"media/beefly_001.m4a",
