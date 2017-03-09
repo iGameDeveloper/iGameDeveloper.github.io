@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489079155,
+	"version": 1489081741,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -52,6 +52,7 @@
 		"images/workerbeeleft_-sheet2.png",
 		"images/cellkursor-sheet0.png",
 		"images/timerbuilding-sheet0.png",
+		"images/panel-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
