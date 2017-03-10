@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489133979,
+	"version": 1489136247,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -46,8 +46,6 @@
 		"images/animatedbeeimage-sheet0.png",
 		"images/border-sheet0.png",
 		"images/slots-sheet0.png",
-		"images/slots-sheet1.png",
-		"images/slots-sheet2.png",
 		"images/workerbeeleft_-sheet0.png",
 		"images/workerbeeleft_-sheet1.png",
 		"images/workerbeeleft_-sheet2.png",
@@ -55,6 +53,7 @@
 		"images/cellkursor-sheet1.png",
 		"images/timerbuilding-sheet0.png",
 		"images/panel-sheet0.png",
+		"images/matecznik-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
