@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489146382,
+	"version": 1489251531,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -74,6 +74,10 @@
 		"media/buildcompleted.ogg",
 		"media/interfacebutton2.m4a",
 		"media/interfacebutton2.ogg",
+		"media/info.m4a",
+		"media/info.ogg",
+		"media/slider.m4a",
+		"media/slider.ogg",
 		"media/dzień.m4a",
 		"media/dzień.ogg",
 		"media/noc.m4a",
