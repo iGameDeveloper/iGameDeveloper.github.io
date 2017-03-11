@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489253146,
+	"version": 1489255532,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -19,7 +19,6 @@
 		"images/honeycomb-sheet0.png",
 		"images/iconpylek-sheet0.png",
 		"images/iconpylek-sheet1.png",
-		"images/iconpylek-sheet2.png",
 		"images/beehiveclipart-sheet0.png",
 		"images/tiledbackground2.png",
 		"images/beeinul-sheet0.png",
