@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489255532,
+	"version": 1489261507,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -12,6 +12,7 @@
 		"images/1kwiat-sheet1.png",
 		"images/cell-sheet0.png",
 		"images/cell-sheet1.png",
+		"images/cell-sheet2.png",
 		"images/osa2-sheet0.png",
 		"images/osa2-sheet1.png",
 		"images/pt5orz5ec-sheet0.png",
@@ -45,6 +46,7 @@
 		"images/animatedbeeimage-sheet0.png",
 		"images/border-sheet0.png",
 		"images/slots-sheet0.png",
+		"images/slots-sheet1.png",
 		"images/workerbeeleft_-sheet0.png",
 		"images/workerbeeleft_-sheet1.png",
 		"images/workerbeeleft_-sheet2.png",
@@ -55,6 +57,7 @@
 		"images/matecznik-sheet0.png",
 		"images/pobrane-sheet0.png",
 		"images/animatedbeeimage2-sheet0.png",
+		"images/webinsidepicturebutterworm-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
