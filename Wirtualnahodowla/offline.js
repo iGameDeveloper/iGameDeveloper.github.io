@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489350779,
+	"version": 1489352292,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -63,6 +63,8 @@
 		"images/bttn-sheet0.png",
 		"images/drzewo-sheet0.png",
 		"images/drzewo-sheet1.png",
+		"images/drzewo-sheet2.png",
+		"images/particles.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
