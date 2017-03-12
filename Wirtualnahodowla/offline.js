@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489353150,
+	"version": 1489355626,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -9,7 +9,6 @@
 		"images/1ul-sheet1.png",
 		"images/1pszczola-sheet0.png",
 		"images/1kwiat-sheet0.png",
-		"images/1kwiat-sheet1.png",
 		"images/cell-sheet0.png",
 		"images/cell-sheet1.png",
 		"images/cell-sheet2.png",
@@ -64,6 +63,7 @@
 		"images/drzewo-sheet1.png",
 		"images/drzewo-sheet2.png",
 		"images/particles.png",
+		"images/fog_day-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
