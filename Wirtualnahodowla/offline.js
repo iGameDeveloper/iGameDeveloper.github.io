@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489269909,
+	"version": 1489341799,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -58,6 +58,9 @@
 		"images/pobrane-sheet0.png",
 		"images/animatedbeeimage2-sheet0.png",
 		"images/webinsidepicturebutterworm-sheet0.png",
+		"images/panel2-sheet0.png",
+		"images/biedronka-sheet0.png",
+		"images/bttn-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
@@ -80,6 +83,10 @@
 		"media/info.ogg",
 		"media/slider.m4a",
 		"media/slider.ogg",
+		"media/score.m4a",
+		"media/score.ogg",
+		"media/born.m4a",
+		"media/born.ogg",
 		"media/dzień.m4a",
 		"media/dzień.ogg",
 		"media/noc.m4a",
@@ -91,6 +98,8 @@
 		"icon-114.png",
 		"icon-128.png",
 		"icon-256.png",
-		"loading-logo.png"
+		"loading-logo.png",
+		"firebase.js",
+		"animate.min.css"
 	]
 }
