@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489393784,
+	"version": 1489481477,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -56,6 +56,7 @@
 		"images/pobrane-sheet0.png",
 		"images/animatedbeeimage2-sheet0.png",
 		"images/webinsidepicturebutterworm-sheet0.png",
+		"images/truten-sheet0.png",
 		"images/panel2-sheet0.png",
 		"images/biedronka-sheet0.png",
 		"images/bttn-sheet0.png",
@@ -63,6 +64,7 @@
 		"images/drzewo-sheet1.png",
 		"images/drzewo-sheet2.png",
 		"images/particles.png",
+		"images/beeinulpracuje-sheet0.png",
 		"images/fog_day-sheet0.png",
 		"images/lifebar-sheet0.png",
 		"images/poryroku-sheet0.png",
@@ -93,6 +95,8 @@
 		"media/score.ogg",
 		"media/born.m4a",
 		"media/born.ogg",
+		"media/save.m4a",
+		"media/save.ogg",
 		"media/dzień.m4a",
 		"media/dzień.ogg",
 		"media/noc.m4a",
