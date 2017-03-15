@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489602086,
+	"version": 1489609466,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -61,8 +61,6 @@
 		"images/biedronka-sheet0.png",
 		"images/bttn-sheet0.png",
 		"images/drzewo-sheet0.png",
-		"images/drzewo-sheet1.png",
-		"images/drzewo-sheet2.png",
 		"images/particles.png",
 		"images/beeinulpracuje-sheet0.png",
 		"images/fog_day-sheet0.png",
@@ -72,6 +70,7 @@
 		"images/tiledbackground.png",
 		"images/panel3-sheet0.png",
 		"images/border2-sheet0.png",
+		"images/pregnantbar-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
