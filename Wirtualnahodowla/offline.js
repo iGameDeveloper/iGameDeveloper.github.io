@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489609466,
+	"version": 1489614887,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -19,6 +19,7 @@
 		"images/honeycomb-sheet0.png",
 		"images/iconpylek-sheet0.png",
 		"images/iconpylek-sheet1.png",
+		"images/iconpylek-sheet2.png",
 		"images/beehiveclipart-sheet0.png",
 		"images/tiledbackground2.png",
 		"images/beeinul-sheet0.png",
@@ -71,6 +72,7 @@
 		"images/panel3-sheet0.png",
 		"images/border2-sheet0.png",
 		"images/pregnantbar-sheet0.png",
+		"images/particles2.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
@@ -103,6 +105,8 @@
 		"media/it will be okay game loop minimla.ogg",
 		"media/dancing simple.m4a",
 		"media/dancing simple.ogg",
+		"media/fun bonus explode 5_001.m4a",
+		"media/fun bonus explode 5_001.ogg",
 		"media/dzień.m4a",
 		"media/dzień.ogg",
 		"media/noc.m4a",
