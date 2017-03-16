@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489614887,
+	"version": 1489675410,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -14,8 +14,6 @@
 		"images/cell-sheet2.png",
 		"images/osa2-sheet0.png",
 		"images/osa2-sheet1.png",
-		"images/pt5orz5ec-sheet0.png",
-		"images/pt5orz5ec-sheet1.png",
 		"images/honeycomb-sheet0.png",
 		"images/iconpylek-sheet0.png",
 		"images/iconpylek-sheet1.png",
@@ -62,6 +60,7 @@
 		"images/biedronka-sheet0.png",
 		"images/bttn-sheet0.png",
 		"images/drzewo-sheet0.png",
+		"images/drzewo-sheet1.png",
 		"images/particles.png",
 		"images/beeinulpracuje-sheet0.png",
 		"images/fog_day-sheet0.png",
@@ -73,6 +72,7 @@
 		"images/border2-sheet0.png",
 		"images/pregnantbar-sheet0.png",
 		"images/particles2.png",
+		"images/sprite2-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
