@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1489675410,
+	"version": 1489946893,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -36,7 +36,6 @@
 		"images/akaubinmaki-sheet0.png",
 		"images/zrzutekranu-sheet0.png",
 		"images/tiledsprite2-sheet0.png",
-		"images/tiledsprite2-sheet1.png",
 		"images/kwiatki-sheet0.png",
 		"images/kwiatki-sheet1.png",
 		"images/kwiatki-sheet2.png",
@@ -73,6 +72,7 @@
 		"images/pregnantbar-sheet0.png",
 		"images/particles2.png",
 		"images/sprite2-sheet0.png",
+		"images/drzewko-sheet0.png",
 		"media/beefly_001.m4a",
 		"media/beefly_001.ogg",
 		"media/special bonus item.m4a",
