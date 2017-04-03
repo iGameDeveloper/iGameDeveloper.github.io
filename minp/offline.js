@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1491219971,
+	"version": 1491220549,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -10,12 +10,15 @@
 		"images/key-sheet0.png",
 		"images/enemy-sheet0.png",
 		"images/tiledbackground.png",
+		"images/kluczsheet-sheet0.png",
 		"media/pickup_coin.m4a",
 		"media/pickup_coin.ogg",
 		"media/hit_hurt3.m4a",
 		"media/hit_hurt3.ogg",
 		"media/click.m4a",
 		"media/click.ogg",
+		"media/music.m4a",
+		"media/music.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
