@@ -18235,8 +18235,8 @@ cr.behaviors.Pin = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Mouse,
-	cr.plugins_.Touch,
 	cr.plugins_.Sprite,
+	cr.plugins_.Touch,
 	cr.behaviors.Bullet,
 	cr.behaviors.Pin,
 	cr.system_object.prototype.cnds.OnLayoutStart,
