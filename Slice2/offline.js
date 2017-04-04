@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1491326797,
+	"version": 1491327719,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -14,6 +14,10 @@
 		"images/grape_w-sheet0.png",
 		"images/grape_bot-sheet0.png",
 		"images/grape_top-sheet0.png",
+		"media/zamachniecie krótkie.m4a",
+		"media/zamachniecie krótkie.ogg",
+		"media/ciecie.m4a",
+		"media/ciecie.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
