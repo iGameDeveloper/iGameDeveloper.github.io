@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1493039407,
+	"version": 1493052110,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -7,8 +7,9 @@
 		"offlineClient.js",
 		"images/doorleftmain-sheet0.png",
 		"images/1player-sheet0.png",
-		"images/tiledbackground.png",
+		"images/wall.png",
 		"images/doorright-sheet0.png",
+		"images/particles.png",
 		"media/componentdropintoinv.m4a",
 		"media/componentdropintoinv.ogg",
 		"media/componentdropintospace.m4a",
