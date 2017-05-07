@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1494164491,
+	"version": 1494165358,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -17,6 +17,12 @@
 		"media/watersplashsmall.ogg",
 		"media/waterdropmedium.m4a",
 		"media/waterdropmedium.ogg",
+		"media/reel.m4a",
+		"media/reel.ogg",
+		"media/forest woodland loop 3.m4a",
+		"media/forest woodland loop 3.ogg",
+		"media/lake.m4a",
+		"media/lake.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
