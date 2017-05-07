@@ -18206,5 +18206,7 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.cnds.Every,
 	cr.plugins_.Text.prototype.acts.SetText,
 	cr.system_object.prototype.exps.round,
-	cr.plugins_.Sprite.prototype.exps.Width
+	cr.plugins_.Sprite.prototype.exps.Width,
+	cr.system_object.prototype.cnds.EveryTick,
+	cr.plugins_.Sprite.prototype.acts.SetPosToObject
 ];};
