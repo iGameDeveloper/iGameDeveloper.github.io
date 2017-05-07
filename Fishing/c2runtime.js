@@ -21658,6 +21658,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.exps.Opacity,
 	cr.system_object.prototype.cnds.EveryTick,
 	cr.plugins_.Sprite.prototype.acts.SetPosToObject,
+	cr.plugins_.Text.prototype.acts.SetPosToObject,
 	cr.plugins_.Sprite.prototype.acts.SetSize,
 	cr.plugins_.Sprite.prototype.exps.Height,
 	cr.plugins_.Sprite.prototype.cnds.OnCreated,
