@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1494242191,
+	"version": 1494243963,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -11,7 +11,7 @@
 		"images/linka-sheet0.png",
 		"images/lens-sheet0.png",
 		"images/lenghtdetector-sheet0.png",
-		"images/splawiki_-sheet0.png",
+		"images/splawik-sheet0.png",
 		"images/maxresdefault-sheet0.png",
 		"images/wedka-sheet0.png",
 		"images/sprite3-sheet0.png",
