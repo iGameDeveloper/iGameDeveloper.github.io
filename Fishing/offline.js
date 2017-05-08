@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1494265824,
+	"version": 1494270809,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -28,6 +28,7 @@
 		"images/reel-sheet0.png",
 		"images/fish-sheet0.png",
 		"images/tiledbackground3.png",
+		"images/szczupak-sheet0.png",
 		"media/watersplashsmall.m4a",
 		"media/watersplashsmall.ogg",
 		"media/waterdropmedium.m4a",
