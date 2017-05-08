@@ -24547,6 +24547,8 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Mouse.prototype.cnds.OnWheel,
 	cr.system_object.prototype.acts.AddVar,
 	cr.system_object.prototype.acts.SubVar,
+	cr.plugins_.Touch.prototype.cnds.IsTouchingObject,
+	cr.plugins_.Sprite.prototype.cnds.CompareInstanceVar,
 	cr.system_object.prototype.cnds.CompareVar,
 	cr.plugins_.Sprite.prototype.cnds.CompareX,
 	cr.plugins_.Sprite.prototype.acts.MoveForward,
