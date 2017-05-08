@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1494237509,
+	"version": 1494240122,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -27,6 +27,7 @@
 		"images/gscamogreen-sheet0.png",
 		"images/depositphotos_129627332stockphotoearthwormsisolatedonwhite-sheet0.png",
 		"images/roach_szymanowice_-sheet0.png",
+		"images/sprite4-sheet0.png",
 		"media/watersplashsmall.m4a",
 		"media/watersplashsmall.ogg",
 		"media/waterdropmedium.m4a",

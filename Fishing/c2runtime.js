@@ -25122,6 +25122,361 @@ cr.behaviors.Physics = function(runtime)
 	};
 	behaviorProto.exps = new Exps();
 }());
+;
+;
+cr.behaviors.Rex_pushOutSolid = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.Rex_pushOutSolid.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+		this.obstacleTypes = [];						// object types to check for as obstructions
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+	    this.enabled = (this.properties[0] === 1);
+	    this.obstacleMode = this.properties[1];		// 0 = solids, 1 = custom
+        this.maxDist = 100;
+	};
+	behinstProto.onDestroy = function()
+	{
+	};
+	behinstProto.tick = function ()
+	{
+	    if (!this.enabled)
+	        return;
+        this.pushOutNearest( this.getCandidates() , this.maxDist);
+	};
+    var __candidates = [];
+	behinstProto.getCandidates = function ()
+	{
+        __candidates.length = 0;
+        if (this.obstacleMode === 0)  // use solids
+        {
+            var solid = this.runtime.getSolidBehavior();
+            if (solid)
+		        cr.appendArray(__candidates, solid.my_instances.valuesRef());
+        }
+        else
+        {
+            var types = this.type.obstacleTypes;
+            var i, cnt=types.length;
+            for (i=0; i<cnt; i++)
+            {
+                cr.appendArray(__candidates, types[i].instances);
+            }
+        }
+        return __candidates;
+	};
+	behinstProto.pushOutNearest = function (candidates, max_dist)
+	{
+	    var inst = this.inst;
+		var dist = 0;
+		var oldx = inst.x
+		var oldy = inst.y;
+		var dir = 0;
+		var dx = 0, dy = 0;
+		var overlap_inst = this.get_first_overlap_inst(candidates);
+		if (!overlap_inst)
+			return true;		// no overlap candidate found
+		while (dist <= max_dist)
+		{
+			switch (dir) {
+			case 0:		dx = 0; dy = -1; dist++; break;
+			case 1:		dx = 1; dy = -1; break;
+			case 2:		dx = 1; dy = 0; break;
+			case 3:		dx = 1; dy = 1; break;
+			case 4:		dx = 0; dy = 1; break;
+			case 5:		dx = -1; dy = 1; break;
+			case 6:		dx = -1; dy = 0; break;
+			case 7:		dx = -1; dy = -1; break;
+			}
+			dir = (dir + 1) % 8;
+			inst.x = cr.floor(oldx + (dx * dist));
+			inst.y = cr.floor(oldy + (dy * dist));
+			inst.set_bbox_changed();
+            overlap_inst = this.get_first_overlap_inst(candidates, overlap_inst);
+	        if (!overlap_inst)
+		        return true;
+		}
+		inst.x = oldx;
+		inst.y = oldy;
+		inst.set_bbox_changed();
+		return false;
+	};
+	behinstProto.pushOut = function (candidates, ux, uy, max_dist)
+	{
+	    var inst = this.inst;
+		var dist = 0;
+		var oldx = inst.x
+		var oldy = inst.y;
+        var testx, testy;
+		var overlap_inst = this.get_first_overlap_inst(candidates);
+		if (!overlap_inst)
+			return true;		// no overlap candidate found
+		while (dist <= max_dist)
+		{
+            dist++;
+            testx = cr.floor(oldx + (ux * dist));
+            testy = cr.floor(oldy + (uy * dist));
+            if ((inst.x === testx) && (inst.y === testy))
+                continue;
+			inst.x = testx;
+			inst.y = testy;
+			inst.set_bbox_changed();
+            overlap_inst = this.get_first_overlap_inst(candidates, overlap_inst);
+	        if (!overlap_inst)
+		        return true;
+		}
+		inst.x = oldx;
+		inst.y = oldy;
+		inst.set_bbox_changed();
+		return false;
+	};
+	behinstProto.get_first_overlap_inst = function (candidates, overlap_inst)
+	{
+        if (overlap_inst && this.runtime.testOverlap(this.inst, overlap_inst))
+            return overlap_inst;
+        var i,cnt=candidates.length;
+        for (i=0; i<cnt; i++)
+        {
+            if (this.runtime.testOverlap(this.inst, candidates[i]))
+                return candidates[i];
+        }
+        return null;
+	};
+	behinstProto.saveToJSON = function ()
+	{
+		var i, len, obs = [];
+		for (i = 0, len = this.type.obstacleTypes.length; i < len; i++)
+		{
+			obs.push(this.type.obstacleTypes[i].sid);
+		}
+		return { "en": this.enabled,
+		         "obs": obs };
+	};
+	behinstProto.loadFromJSON = function (o)
+	{
+		this.enabled = o["en"];
+		cr.clearArray(this.type.obstacleTypes);
+		var obsarr = o["obs"];
+		var i, len, t;
+		for (i = 0, len = obsarr.length; i < len; i++)
+		{
+			t = this.runtime.getObjectTypeBySid(obsarr[i]);
+			if (t)
+				this.type.obstacleTypes.push(t);
+		}
+	};
+	function Cnds() {};
+	behaviorProto.cnds = new Cnds();
+	function Acts() {};
+	behaviorProto.acts = new Acts();
+	Acts.prototype.SetEnabled = function (en)
+	{
+		this.enabled = (en === 1);
+	};
+	Acts.prototype.AddObstacle = function (obj_)
+	{
+	    if (!obj_)
+	        return;
+	    debugger
+		var obstacleTypes = this.type.obstacleTypes;
+		if (obstacleTypes.indexOf(obj_) !== -1)
+			return;
+		var i, len, t;
+		for (i = 0, len = obstacleTypes.length; i < len; i++)
+		{
+			t = obstacleTypes[i];
+			if (t.is_family && t.members.indexOf(obj_) !== -1)
+				return;
+		}
+		obstacleTypes.push(obj_);
+	};
+	Acts.prototype.ClearObstacles = function ()
+	{
+		this.type.obstacleTypes.length = 0;
+	};
+	Acts.prototype.PushOutNearest = function (maxDist)
+	{
+        this.pushOutNearest( this.getCandidates() , maxDist);
+	};
+	Acts.prototype.PushOutAngle = function (a, maxDist)
+	{
+		a = cr.to_radians(a);
+		var ux = Math.cos(a);
+		var uy = Math.sin(a);
+		this.pushOut(this.getCandidates() , ux, uy, maxDist);
+	};
+	Acts.prototype.PushOutToPos = function (x, y)
+	{
+        var dx = x - this.inst.x;
+        var dy = y - this.inst.y;
+        var maxDist = Math.sqrt(dx*dx + dy*dy);
+		var a = Math.atan2(dy, dx);
+		var ux = Math.cos(a);
+		var uy = Math.sin(a);
+		this.pushOut(this.getCandidates() , ux, uy, maxDist);
+	};
+	function Exps() {};
+	behaviorProto.exps = new Exps();
+}());
+;
+;
+cr.behaviors.bound = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.bound.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+		this.mode = 0;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		this.mode = this.properties[0];	// 0 = origin, 1 = edge
+	};
+	behinstProto.tick = function ()
+	{
+	};
+	behinstProto.tick2 = function ()
+	{
+		this.inst.update_bbox();
+		var bbox = this.inst.bbox;
+		var layout = this.inst.layer.layout;
+		var changed = false;
+		if (this.mode === 0)	// origin
+		{
+			if (this.inst.x < 0)
+			{
+				this.inst.x = 0;
+				changed = true;
+			}
+			if (this.inst.y < 0)
+			{
+				this.inst.y = 0;
+				changed = true;
+			}
+			if (this.inst.x > layout.width)
+			{
+				this.inst.x = layout.width;
+				changed = true;
+			}
+			if (this.inst.y > layout.height)
+			{
+				this.inst.y = layout.height;
+				changed = true;
+			}
+		}
+		else
+		{
+			if (bbox.left < 0)
+			{
+				this.inst.x -= bbox.left;
+				changed = true;
+			}
+			if (bbox.top < 0)
+			{
+				this.inst.y -= bbox.top;
+				changed = true;
+			}
+			if (bbox.right > layout.width)
+			{
+				this.inst.x -= (bbox.right - layout.width);
+				changed = true;
+			}
+			if (bbox.bottom > layout.height)
+			{
+				this.inst.y -= (bbox.bottom - layout.height);
+				changed = true;
+			}
+		}
+		if (changed)
+			this.inst.set_bbox_changed();
+	};
+}());
+;
+;
+cr.behaviors.solid = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.solid.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		this.inst.extra["solidEnabled"] = (this.properties[0] !== 0);
+	};
+	behinstProto.tick = function ()
+	{
+	};
+	function Cnds() {};
+	Cnds.prototype.IsEnabled = function ()
+	{
+		return this.inst.extra["solidEnabled"];
+	};
+	behaviorProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.SetEnabled = function (e)
+	{
+		this.inst.extra["solidEnabled"] = !!e;
+	};
+	behaviorProto.acts = new Acts();
+}());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
 	cr.plugins_.Mouse,
@@ -25132,8 +25487,12 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.TiledBg,
 	cr.behaviors.Physics,
 	cr.behaviors.DragnDrop,
+	cr.behaviors.solid,
+	cr.behaviors.Rex_pushOutSolid,
+	cr.behaviors.bound,
 	cr.system_object.prototype.cnds.OnLayoutStart,
 	cr.plugins_.Audio.prototype.acts.Play,
+	cr.plugins_.Sprite.prototype.acts.SetPosToObject,
 	cr.plugins_.Touch.prototype.cnds.IsTouchingObject,
 	cr.plugins_.Sprite.prototype.acts.SetAngle,
 	cr.system_object.prototype.exps.angle,
@@ -25149,7 +25508,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetOpacity,
 	cr.plugins_.Sprite.prototype.exps.Opacity,
 	cr.system_object.prototype.cnds.EveryTick,
-	cr.plugins_.Sprite.prototype.acts.SetPosToObject,
 	cr.plugins_.Text.prototype.acts.SetPosToObject,
 	cr.plugins_.Sprite.prototype.acts.SetSize,
 	cr.plugins_.Sprite.prototype.exps.Height,
