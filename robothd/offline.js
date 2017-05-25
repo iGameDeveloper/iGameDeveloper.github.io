@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1495709655,
+	"version": 1495722193,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -51,8 +51,6 @@
 		"images/1_-sheet1.png",
 		"images/introeva-sheet0.png",
 		"images/introrust-sheet0.png",
-		"images/introrust-sheet1.png",
-		"images/introrust-sheet2.png",
 		"images/ricintrolezy-sheet0.png",
 		"images/ricintrolezy-sheet1.png",
 		"images/ricintrolezy-sheet2.png",
