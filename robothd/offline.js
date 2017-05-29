@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1495722193,
+	"version": 1496010974,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -177,6 +177,8 @@
 		"media/lvl1.ogg",
 		"media/futurust - ghost in the machine-4.m4a",
 		"media/futurust - ghost in the machine-4.ogg",
+		"media/sfx - dzungla.ogg",
+		"media/sfx - podworko.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
