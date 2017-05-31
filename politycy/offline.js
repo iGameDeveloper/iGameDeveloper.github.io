@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496181892,
+	"version": 1496245363,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -12,6 +12,7 @@
 		"images/sprite4-sheet0.png",
 		"images/sprite5-sheet0.png",
 		"images/bullethole-sheet0.png",
+		"images/sprite6-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
