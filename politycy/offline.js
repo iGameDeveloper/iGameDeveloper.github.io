@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496265364,
+	"version": 1496265516,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -47,6 +47,8 @@
 		"media/explode1_001.ogg",
 		"media/fanfare (2).m4a",
 		"media/fanfare (2).ogg",
+		"media/new bonus 2.m4a",
+		"media/new bonus 2.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
