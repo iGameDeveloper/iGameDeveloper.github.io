@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496256351,
+	"version": 1496261632,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -17,13 +17,16 @@
 		"images/player2-sheet2.png",
 		"images/34_drzewko-sheet0.png",
 		"images/misiewiczglowa-sheet0.png",
+		"images/misiewiczglowa-sheet1.png",
 		"images/misiewicz-sheet0.png",
 		"images/misiewicz-sheet1.png",
 		"images/m1garandrifle-sheet0.png",
 		"images/waclawglowa-sheet0.png",
+		"images/waclawglowa-sheet1.png",
 		"images/triggger-sheet0.png",
 		"images/dymek-sheet0.png",
 		"images/dymek-sheet1.png",
+		"images/paisagemnaturalcampoverde-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
