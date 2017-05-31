@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496263501,
+	"version": 1496264315,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -30,6 +30,7 @@
 		"images/ep2_exp8_-sheet0.png",
 		"images/ep2_exp8_-sheet1.png",
 		"images/ep2_exp8_-sheet2.png",
+		"images/oorder-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
@@ -44,6 +45,8 @@
 		"media/heli_001.ogg",
 		"media/explode1_001.m4a",
 		"media/explode1_001.ogg",
+		"media/fanfare (2).m4a",
+		"media/fanfare (2).ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
