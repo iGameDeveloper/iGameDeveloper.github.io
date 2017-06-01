@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496339183,
+	"version": 1496344340,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -33,6 +33,11 @@
 		"images/pluie-sheet0.png",
 		"images/pluie-sheet1.png",
 		"images/pluie-sheet2.png",
+		"images/z20902223vcaracal-sheet0.png",
+		"images/pngpixcomexplosionpngimage-sheet0.png",
+		"images/andrzejdudananartach_-sheet0.png",
+		"images/8640717jaroslawkaczynskiwsejmie-sheet0.png",
+		"images/tojawykonczylem-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
