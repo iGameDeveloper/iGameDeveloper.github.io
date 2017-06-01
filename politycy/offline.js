@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496305546,
+	"version": 1496307917,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -29,6 +29,8 @@
 		"images/ep2_exp8_-sheet1.png",
 		"images/ep2_exp8_-sheet2.png",
 		"images/oorder-sheet0.png",
+		"images/misiewiczglowa2-sheet0.png",
+		"images/dymek2-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
