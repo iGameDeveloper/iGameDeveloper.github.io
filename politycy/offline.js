@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496344340,
+	"version": 1496346264,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -38,6 +38,11 @@
 		"images/andrzejdudananartach_-sheet0.png",
 		"images/8640717jaroslawkaczynskiwsejmie-sheet0.png",
 		"images/tojawykonczylem-sheet0.png",
+		"images/glownarolawacek-sheet0.png",
+		"images/zolnierz-sheet0.png",
+		"images/zolnierz-sheet1.png",
+		"images/pict_-sheet0.png",
+		"images/parasol-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
