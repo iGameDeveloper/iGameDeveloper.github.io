@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496353291,
+	"version": 1496393462,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -30,6 +30,7 @@
 		"images/oorder-sheet0.png",
 		"images/misiewiczglowa2-sheet0.png",
 		"images/dymek2-sheet0.png",
+		"images/dymek2-sheet1.png",
 		"images/pluie-sheet0.png",
 		"images/pluie-sheet1.png",
 		"images/pluie-sheet2.png",
