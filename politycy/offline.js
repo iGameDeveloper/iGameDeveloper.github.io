@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496393462,
+	"version": 1496403973,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -44,6 +44,7 @@
 		"images/zolnierz-sheet1.png",
 		"images/pict_-sheet0.png",
 		"images/parasol-sheet0.png",
+		"images/fogpnghd-sheet0.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
