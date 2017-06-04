@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496564985,
+	"version": 1496613804,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -64,6 +64,16 @@
 		"media/fanfare (2).ogg",
 		"media/new bonus 2.m4a",
 		"media/new bonus 2.ogg",
+		"media/antoni antoni.m4a",
+		"media/antoni antoni.ogg",
+		"media/jaro jaro.m4a",
+		"media/jaro jaro.ogg",
+		"media/lepszabron.m4a",
+		"media/lepszabron.ogg",
+		"media/misiubron.m4a",
+		"media/misiubron.ogg",
+		"media/muszewykonczyc.m4a",
+		"media/muszewykonczyc.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
