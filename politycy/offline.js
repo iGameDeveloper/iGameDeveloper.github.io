@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496614088,
+	"version": 1496678229,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -17,6 +17,8 @@
 		"images/misiewiczglowa-sheet0.png",
 		"images/misiewiczglowa-sheet1.png",
 		"images/misiewicz-sheet0.png",
+		"images/misiewicz-sheet1.png",
+		"images/misiewicz-sheet2.png",
 		"images/m1garandrifle-sheet0.png",
 		"images/waclawglowa-sheet0.png",
 		"images/waclawglowa-sheet1.png",
