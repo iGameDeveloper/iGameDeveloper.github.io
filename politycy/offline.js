@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496679254,
+	"version": 1496680382,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -47,7 +47,8 @@
 		"images/pict_-sheet0.png",
 		"images/parasol-sheet0.png",
 		"images/fogpnghd-sheet0.png",
-		"images/podkurzaczocynkowanyzchlodnicamaleotwory-sheet0.png",
+		"images/podkurzacz-sheet0.png",
+		"images/particles.png",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
