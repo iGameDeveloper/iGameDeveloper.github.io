@@ -23751,14 +23751,14 @@ cr.behaviors.solid = function(runtime)
 	behaviorProto.acts = new Acts();
 }());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Sprite,
-	cr.plugins_.Touch,
-	cr.plugins_.Text,
-	cr.plugins_.TiledBg,
 	cr.plugins_.Audio,
 	cr.plugins_.Button,
 	cr.plugins_.Mouse,
 	cr.plugins_.Particles,
+	cr.plugins_.Sprite,
+	cr.plugins_.Text,
+	cr.plugins_.TiledBg,
+	cr.plugins_.Touch,
 	cr.behaviors.EightDir,
 	cr.behaviors.bound,
 	cr.behaviors.Bullet,
