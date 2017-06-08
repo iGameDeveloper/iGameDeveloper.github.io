@@ -23519,18 +23519,66 @@ cr.behaviors.scrollto = function(runtime)
 	};
 	behaviorProto.acts = new Acts();
 }());
+;
+;
+cr.behaviors.solid = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.solid.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		this.inst.extra["solidEnabled"] = (this.properties[0] !== 0);
+	};
+	behinstProto.tick = function ()
+	{
+	};
+	function Cnds() {};
+	Cnds.prototype.IsEnabled = function ()
+	{
+		return this.inst.extra["solidEnabled"];
+	};
+	behaviorProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.SetEnabled = function (e)
+	{
+		this.inst.extra["solidEnabled"] = !!e;
+	};
+	behaviorProto.acts = new Acts();
+}());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Sprite,
-	cr.plugins_.Text,
-	cr.plugins_.TiledBg,
-	cr.plugins_.Touch,
 	cr.plugins_.Audio,
 	cr.plugins_.Mouse,
+	cr.plugins_.Sprite,
+	cr.plugins_.TiledBg,
+	cr.plugins_.Text,
+	cr.plugins_.Touch,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
 	cr.behaviors.custom,
 	cr.behaviors.DragnDrop,
 	cr.behaviors.LOS,
+	cr.behaviors.solid,
 	cr.behaviors.scrollto,
 	cr.behaviors.Sin,
 	cr.system_object.prototype.cnds.Every,
@@ -23592,7 +23640,10 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetWidth,
 	cr.system_object.prototype.cnds.EveryTick,
 	cr.plugins_.Sprite.prototype.cnds.CompareHeight,
-	cr.system_object.prototype.cnds.Else,
+	cr.plugins_.Sprite.prototype.acts.SetHeight,
+	cr.behaviors.Bullet.prototype.acts.SetGravity,
+	cr.plugins_.Sprite.prototype.cnds.OnCollision,
+	cr.behaviors.Bullet.prototype.acts.SetEnabled,
 	cr.behaviors.DragnDrop.prototype.cnds.OnDrop,
 	cr.behaviors.DragnDrop.prototype.cnds.OnDragStart,
 	cr.plugins_.Sprite.prototype.cnds.IsBoolInstanceVarSet,
@@ -23622,7 +23673,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.cnds.CompareY,
 	cr.plugins_.Touch.prototype.cnds.OnTapGestureObject,
 	cr.behaviors.custom.prototype.acts.SetSpeed,
-	cr.plugins_.Sprite.prototype.cnds.OnCollision,
 	cr.behaviors.custom.prototype.acts.Stop,
 	cr.plugins_.Mouse.prototype.cnds.OnObjectClicked,
 	cr.plugins_.Sprite.prototype.acts.SetX,
