@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496915318,
+	"version": 1496929673,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -156,7 +156,6 @@
 		"images/bad2-sheet9.png",
 		"images/bad2-sheet10.png",
 		"images/bad2-sheet11.png",
-		"images/bad2-sheet12.png",
 		"media/czajnik.m4a",
 		"media/czajnik.ogg",
 		"media/przybija.m4a",
