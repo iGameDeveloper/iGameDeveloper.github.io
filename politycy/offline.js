@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1496830314,
+	"version": 1496877436,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -51,6 +51,10 @@
 		"images/mms_img-sheet0.png",
 		"images/tiledbackground.png",
 		"images/isometricofacarpentersbench-sheet0.png",
+		"images/drzwi-sheet0.png",
+		"images/biurko-sheet0.png",
+		"images/fotel-sheet0.png",
+		"images/kot-sheet0.png",
 		"media/no to wygralismy.m4a",
 		"media/no to wygralismy.ogg",
 		"media/jaro jaro.m4a",
