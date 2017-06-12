@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1497182020,
+	"version": 1497289246,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -159,7 +159,9 @@
 		"images/2lokaciapodworkoprzedlazienka-sheet0.png",
 		"images/2lokaciapodworkoprzedlazienka-sheet1.png",
 		"images/2lokaciapodworkoprzedlazienka-sheet2.png",
-		"images/19048541_1380342925389526_1703664363_o-sheet0.png",
+		"images/menu-sheet0.png",
+		"images/menu-sheet1.png",
+		"images/menu-sheet2.png",
 		"media/czajnik.m4a",
 		"media/czajnik.ogg",
 		"media/przybija.m4a",
