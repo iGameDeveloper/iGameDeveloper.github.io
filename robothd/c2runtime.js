@@ -23566,21 +23566,95 @@ cr.behaviors.solid = function(runtime)
 	};
 	behaviorProto.acts = new Acts();
 }());
+;
+;
+cr.behaviors.wrap = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.wrap.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		this.mode = this.properties[0];		// 0 = wrap to layout, 1 = wrap to viewport
+	};
+	behinstProto.tick = function ()
+	{
+		var inst = this.inst;
+		inst.update_bbox();
+		var bbox = inst.bbox;
+		var layer = inst.layer;
+		var layout = layer.layout;
+		var lbound = 0, rbound = 0, tbound = 0, bbound = 0;
+		if (this.mode === 0)
+		{
+			rbound = layout.width;
+			bbound = layout.height;
+		}
+		else
+		{
+			lbound = layer.viewLeft;
+			rbound = layer.viewRight;
+			tbound = layer.viewTop;
+			bbound = layer.viewBottom;
+		}
+		if (bbox.right < lbound)
+		{
+			inst.x = (rbound - 1) + (inst.x - bbox.left);
+			inst.set_bbox_changed();
+		}
+		else if (bbox.left > rbound)
+		{
+			inst.x = (lbound + 1) - (bbox.right - inst.x);
+			inst.set_bbox_changed();
+		}
+		else if (bbox.bottom < tbound)
+		{
+			inst.y = (bbound - 1) + (inst.y - bbox.top);
+			inst.set_bbox_changed();
+		}
+		else if (bbox.top > bbound)
+		{
+			inst.y = (tbound + 1) - (bbox.bottom - inst.y);
+			inst.set_bbox_changed();
+		}
+	};
+}());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
 	cr.plugins_.Mouse,
-	cr.plugins_.Sprite,
 	cr.plugins_.TiledBg,
 	cr.plugins_.Touch,
 	cr.plugins_.Text,
+	cr.plugins_.Sprite,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
 	cr.behaviors.custom,
 	cr.behaviors.DragnDrop,
 	cr.behaviors.LOS,
+	cr.behaviors.Sin,
 	cr.behaviors.solid,
 	cr.behaviors.scrollto,
-	cr.behaviors.Sin,
+	cr.behaviors.wrap,
 	cr.system_object.prototype.cnds.Every,
 	cr.plugins_.Sprite.prototype.acts.MoveForward,
 	cr.plugins_.TiledBg.prototype.acts.SetOpacity,
@@ -23650,6 +23724,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.cnds.IsOnScreen,
 	cr.plugins_.Touch.prototype.cnds.OnTouchObject,
 	cr.plugins_.Sprite.prototype.cnds.PickByUID,
+	cr.plugins_.Sprite.prototype.acts.SetY,
 	cr.behaviors.DragnDrop.prototype.cnds.OnDrop,
 	cr.behaviors.DragnDrop.prototype.cnds.OnDragStart,
 	cr.plugins_.Sprite.prototype.cnds.IsBoolInstanceVarSet,
@@ -23660,25 +23735,25 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.SetVar,
 	cr.plugins_.Sprite.prototype.exps.PickedCount,
 	cr.system_object.prototype.cnds.Compare,
+	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
+	cr.plugins_.Sprite.prototype.cnds.CompareY,
+	cr.behaviors.custom.prototype.acts.SetSpeed,
+	cr.system_object.prototype.acts.CreateObject,
+	cr.behaviors.custom.prototype.acts.Stop,
+	cr.plugins_.Mouse.prototype.cnds.OnObjectClicked,
 	cr.plugins_.Touch.prototype.cnds.IsTouchingObject,
+	cr.plugins_.Sprite.prototype.cnds.CompareX,
+	cr.system_object.prototype.acts.SubVar,
+	cr.system_object.prototype.acts.SetGroupActive,
+	cr.plugins_.Touch.prototype.cnds.OnTouchStart,
+	cr.system_object.prototype.acts.SetTimescale,
+	cr.plugins_.Audio.prototype.acts.PlayByName,
 	cr.system_object.prototype.acts.ResetGlobals,
 	cr.system_object.prototype.acts.RestartLayout,
-	cr.system_object.prototype.acts.SetGroupActive,
-	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
-	cr.plugins_.Audio.prototype.acts.PlayByName,
 	cr.plugins_.Sprite.prototype.acts.SetPos,
 	cr.plugins_.Touch.prototype.exps.X,
 	cr.plugins_.Touch.prototype.exps.Y,
 	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.behaviors.Bullet.prototype.cnds.CompareSpeed,
-	cr.system_object.prototype.exps.angle,
-	cr.system_object.prototype.acts.CreateObject,
-	cr.system_object.prototype.acts.SubVar,
-	cr.plugins_.Sprite.prototype.acts.SetY,
-	cr.plugins_.Sprite.prototype.cnds.CompareY,
-	cr.plugins_.Touch.prototype.cnds.OnTapGestureObject,
-	cr.behaviors.custom.prototype.acts.SetSpeed,
-	cr.behaviors.custom.prototype.acts.Stop,
-	cr.plugins_.Mouse.prototype.cnds.OnObjectClicked,
-	cr.plugins_.Sprite.prototype.cnds.CompareX
+	cr.system_object.prototype.exps.angle
 ];};
