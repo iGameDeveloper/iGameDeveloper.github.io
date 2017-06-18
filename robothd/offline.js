@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1497783083,
+	"version": 1497816500,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -84,6 +84,7 @@
 		"images/przyciemnienie.png",
 		"images/target-sheet0.png",
 		"images/strefachodzenia-sheet0.png",
+		"images/solid-sheet0.png",
 		"images/sprite21-sheet0.png",
 		"images/trescdymek-sheet0.png",
 		"images/trescdymek-sheet1.png",
@@ -173,6 +174,11 @@
 		"images/exit-sheet1.png",
 		"images/sprite2-sheet0.png",
 		"images/tiledbackground.png",
+		"images/newgame-sheet0.png",
+		"images/nonewgame-sheet0.png",
+		"images/nonewgame-sheet1.png",
+		"images/nonewgame-sheet2.png",
+		"images/yesnewgame-sheet0.png",
 		"media/czajnik.m4a",
 		"media/czajnik.ogg",
 		"media/przybija.m4a",
