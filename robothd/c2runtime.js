@@ -24964,7 +24964,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.behaviors.Bullet.prototype.cnds.CompareSpeed,
 	cr.system_object.prototype.exps.angle,
-	cr.plugins_.Sprite.prototype.cnds.OnDestroyed,
 	cr.plugins_.Touch.prototype.cnds.OnDoubleTapGestureObject,
 	cr.system_object.prototype.acts.SaveState,
 	cr.plugins_.LocalStorage.prototype.acts.SetItem

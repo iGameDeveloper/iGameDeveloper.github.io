@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1497817117,
+	"version": 1497818952,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -43,6 +43,8 @@
 		"images/bolec-sheet1.png",
 		"images/lampa-sheet0.png",
 		"images/lampa-sheet1.png",
+		"images/itemspoz1-sheet0.png",
+		"images/itemspoz1-sheet1.png",
 		"images/glowabad-sheet0.png",
 		"images/nogibad-sheet0.png",
 		"images/nogibad-sheet1.png",
@@ -88,8 +90,6 @@
 		"images/sprite21-sheet0.png",
 		"images/trescdymek-sheet0.png",
 		"images/trescdymek-sheet1.png",
-		"images/itemspoz1-sheet0.png",
-		"images/itemspoz1-sheet1.png",
 		"images/eqitem-sheet0.png",
 		"images/sprite33-sheet0.png",
 		"images/sprite4-sheet0.png",
