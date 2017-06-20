@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1497954143,
+	"version": 1497968030,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -9,6 +9,8 @@
 		"images/rustanim-sheet1.png",
 		"images/rustanim-sheet2.png",
 		"images/rustanim-sheet3.png",
+		"images/rustanim-sheet4.png",
+		"images/rustanim-sheet5.png",
 		"images/rustmov-sheet0.png",
 		"images/bob-sheet0.png",
 		"images/bob-sheet1.png",
