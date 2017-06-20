@@ -24839,14 +24839,14 @@ cr.behaviors.wrap = function(runtime)
 	};
 }());
 cr.getObjectRefTable = function () { return [
+	cr.plugins_.Text,
+	cr.plugins_.Touch,
+	cr.plugins_.Sprite,
+	cr.plugins_.TiledBg,
 	cr.plugins_.Audio,
 	cr.plugins_.Browser,
-	cr.plugins_.Mouse,
 	cr.plugins_.LocalStorage,
-	cr.plugins_.Sprite,
-	cr.plugins_.Text,
-	cr.plugins_.TiledBg,
-	cr.plugins_.Touch,
+	cr.plugins_.Mouse,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
 	cr.behaviors.custom,
@@ -24861,6 +24861,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.TiledBg.prototype.acts.SetOpacity,
 	cr.plugins_.TiledBg.prototype.exps.Opacity,
 	cr.plugins_.Sprite.prototype.acts.RotateClockwise,
+	cr.plugins_.Audio.prototype.acts.Stop,
 	cr.plugins_.TiledBg.prototype.cnds.IsVisible,
 	cr.system_object.prototype.acts.Wait,
 	cr.plugins_.TiledBg.prototype.cnds.CompareOpacity,
@@ -24955,16 +24956,17 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.SubVar,
 	cr.system_object.prototype.acts.SetGroupActive,
 	cr.plugins_.Touch.prototype.cnds.OnTouchStart,
+	cr.plugins_.Touch.prototype.exps.X,
+	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.plugins_.Audio.prototype.acts.PlayByName,
 	cr.system_object.prototype.acts.ResetGlobals,
 	cr.system_object.prototype.acts.RestartLayout,
 	cr.plugins_.Sprite.prototype.acts.SetPos,
-	cr.plugins_.Touch.prototype.exps.X,
 	cr.plugins_.Touch.prototype.exps.Y,
-	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.behaviors.Bullet.prototype.cnds.CompareSpeed,
 	cr.system_object.prototype.exps.angle,
 	cr.plugins_.Touch.prototype.cnds.OnDoubleTapGestureObject,
 	cr.system_object.prototype.acts.SaveState,
-	cr.plugins_.LocalStorage.prototype.acts.SetItem
+	cr.plugins_.LocalStorage.prototype.acts.SetItem,
+	cr.system_object.prototype.exps.choose
 ];};
