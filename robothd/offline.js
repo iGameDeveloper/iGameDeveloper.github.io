@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1497949648,
+	"version": 1497954143,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -9,7 +9,6 @@
 		"images/rustanim-sheet1.png",
 		"images/rustanim-sheet2.png",
 		"images/rustanim-sheet3.png",
-		"images/rustanim-sheet4.png",
 		"images/rustmov-sheet0.png",
 		"images/bob-sheet0.png",
 		"images/bob-sheet1.png",
@@ -182,6 +181,7 @@
 		"images/nonewgame-sheet1.png",
 		"images/nonewgame-sheet2.png",
 		"images/yesnewgame-sheet0.png",
+		"images/solidkolizje.png",
 		"media/klik_001.m4a",
 		"media/klik_001.ogg",
 		"media/czajnik.m4a",

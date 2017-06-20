@@ -24968,5 +24968,10 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Touch.prototype.cnds.OnDoubleTapGestureObject,
 	cr.system_object.prototype.acts.SaveState,
 	cr.plugins_.LocalStorage.prototype.acts.SetItem,
+	cr.plugins_.Sprite.prototype.exps.AnimationName,
+	cr.plugins_.Touch.prototype.cnds.IsInTouch,
+	cr.plugins_.Touch.prototype.cnds.OnTouchEnd,
+	cr.behaviors.DragnDrop.prototype.acts.Drop,
+	cr.behaviors.DragnDrop.prototype.cnds.IsDragging,
 	cr.system_object.prototype.exps.choose
 ];};
