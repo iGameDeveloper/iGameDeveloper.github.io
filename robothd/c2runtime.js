@@ -24965,11 +24965,14 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.behaviors.Bullet.prototype.cnds.CompareSpeed,
 	cr.system_object.prototype.exps.angle,
+	cr.behaviors.Bullet.prototype.exps.AngleOfMotion,
 	cr.plugins_.Touch.prototype.cnds.OnDoubleTapGestureObject,
 	cr.system_object.prototype.acts.SaveState,
 	cr.plugins_.LocalStorage.prototype.acts.SetItem,
 	cr.plugins_.Sprite.prototype.exps.AnimationName,
 	cr.plugins_.Touch.prototype.cnds.IsInTouch,
 	cr.plugins_.Touch.prototype.cnds.OnTouchEnd,
-	cr.system_object.prototype.exps.choose
+	cr.system_object.prototype.exps.choose,
+	cr.plugins_.Mouse.prototype.cnds.IsButtonDown,
+	cr.system_object.prototype.acts.SetTimescale
 ];};
