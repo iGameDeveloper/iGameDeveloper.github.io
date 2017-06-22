@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1498140396,
+	"version": 1498149278,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -58,6 +58,7 @@
 		"images/macierewicz-sheet0.png",
 		"images/kupgre-sheet0.png",
 		"images/eoptymalizacja-sheet0.png",
+		"images/wkrotcedalszeprzygody-sheet0.png",
 		"media/no to wygralismy.m4a",
 		"media/no to wygralismy.ogg",
 		"media/jaro jaro.m4a",

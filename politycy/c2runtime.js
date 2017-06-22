@@ -23838,5 +23838,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetWidth,
 	cr.plugins_.Sprite.prototype.acts.StartAnim,
 	cr.plugins_.Sprite.prototype.acts.SetY,
-	cr.plugins_.Sprite.prototype.exps.Y
+	cr.plugins_.Sprite.prototype.exps.Y,
+	cr.plugins_.Sprite.prototype.acts.SetOpacity,
+	cr.plugins_.Sprite.prototype.exps.Opacity
 ];};
