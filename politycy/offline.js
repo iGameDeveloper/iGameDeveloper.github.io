@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1498149726,
+	"version": 1498219572,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -73,6 +73,8 @@
 		"media/to postanowilem .ogg",
 		"media/drzwi.m4a",
 		"media/drzwi.ogg",
+		"media/jestesmy ludzkimi.m4a",
+		"media/jestesmy ludzkimi.ogg",
 		"media/step2.m4a",
 		"media/step2.ogg",
 		"media/052-cannon01.m4a",
@@ -99,6 +101,8 @@
 		"media/muszewykonczyc.ogg",
 		"media/brzozy.m4a",
 		"media/brzozy.ogg",
+		"media/sztuczna.m4a",
+		"media/sztuczna.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
