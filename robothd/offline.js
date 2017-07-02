@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1498986730,
+	"version": 1498990237,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -334,6 +334,10 @@
 		"media/uderza mlotkiem_001.ogg",
 		"media/rust krzyczy oddala_001.m4a",
 		"media/rust krzyczy oddala_001.ogg",
+		"media/sklada elementy_001.m4a",
+		"media/sklada elementy_001.ogg",
+		"media/podnosi sie_001.m4a",
+		"media/podnosi sie_001.ogg",
 		"media/czytnik tak_001.m4a",
 		"media/czytnik tak_001.ogg",
 		"media/drzwi otwiera_001.m4a",
