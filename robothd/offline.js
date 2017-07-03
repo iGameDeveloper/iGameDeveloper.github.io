@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1499067173,
+	"version": 1499076513,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -80,7 +80,7 @@
 		"images/tytulpng-sheet2.png",
 		"images/restartbutton-sheet0.png",
 		"images/restartbutton-sheet1.png",
-		"images/kamera-sheet0.png",
+		"images/1kamera-sheet0.png",
 		"images/guzikmenu-sheet0.png",
 		"images/przyciemnienie.png",
 		"images/target-sheet0.png",
@@ -175,7 +175,6 @@
 		"images/nonewgame-sheet2.png",
 		"images/yesnewgame-sheet0.png",
 		"images/solidkolizje.png",
-		"images/dymek3-sheet0.png",
 		"images/srubokretdlaboba-sheet0.png",
 		"media/klik_001.m4a",
 		"media/klik_001.ogg",
