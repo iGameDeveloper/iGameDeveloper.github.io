@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1499089016,
+	"version": 1499110718,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -65,7 +65,10 @@
 		"images/1_-sheet1.png",
 		"images/1introeva-sheet0.png",
 		"images/1introeva-sheet1.png",
+		"images/1introeva-sheet2.png",
+		"images/1introeva-sheet3.png",
 		"images/introrust-sheet0.png",
+		"images/introrust-sheet1.png",
 		"images/ricintrolezy-sheet0.png",
 		"images/ricintrolezy-sheet1.png",
 		"images/ricintrolezy-sheet2.png",
@@ -176,6 +179,7 @@
 		"images/yesnewgame-sheet0.png",
 		"images/solidkolizje.png",
 		"images/srubokretdlaboba-sheet0.png",
+		"images/rustkolizje2-sheet0.png",
 		"media/klik_001.m4a",
 		"media/klik_001.ogg",
 		"media/czajnik.m4a",
