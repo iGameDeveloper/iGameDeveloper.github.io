@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1499247981,
+	"version": 1499335439,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -178,6 +178,7 @@
 		"images/nonewgame-sheet2.png",
 		"images/yesnewgame-sheet0.png",
 		"images/solidkolizje.png",
+		"images/trescdymek2-sheet0.png",
 		"images/srubokretdlaboba-sheet0.png",
 		"images/rustkolizje2-sheet0.png",
 		"media/klik_001.m4a",
