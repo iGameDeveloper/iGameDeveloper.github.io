@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1499335439,
+	"version": 1499411855,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -85,6 +85,8 @@
 		"images/restartbutton-sheet1.png",
 		"images/1kamera-sheet0.png",
 		"images/guzikmenuexitquit-sheet0.png",
+		"images/guzikmenuexitquit-sheet1.png",
+		"images/guzikmenuexitquit-sheet2.png",
 		"images/przyciemnienie.png",
 		"images/target-sheet0.png",
 		"images/strefachodzenia-sheet0.png",
