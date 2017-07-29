@@ -15148,6 +15148,715 @@ cr.system_object.prototype.loadFromJSON = function (o)
 cr.shaders = {};
 ;
 ;
+cr.plugins_.Arr = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var pluginProto = cr.plugins_.Arr.prototype;
+	pluginProto.Type = function(plugin)
+	{
+		this.plugin = plugin;
+		this.runtime = plugin.runtime;
+	};
+	var typeProto = pluginProto.Type.prototype;
+	typeProto.onCreate = function()
+	{
+	};
+	pluginProto.Instance = function(type)
+	{
+		this.type = type;
+		this.runtime = type.runtime;
+	};
+	var instanceProto = pluginProto.Instance.prototype;
+	var arrCache = [];
+	function allocArray()
+	{
+		if (arrCache.length)
+			return arrCache.pop();
+		else
+			return [];
+	};
+	if (!Array.isArray)
+	{
+		Array.isArray = function (vArg) {
+			return Object.prototype.toString.call(vArg) === "[object Array]";
+		};
+	}
+	function freeArray(a)
+	{
+		var i, len;
+		for (i = 0, len = a.length; i < len; i++)
+		{
+			if (Array.isArray(a[i]))
+				freeArray(a[i]);
+		}
+		cr.clearArray(a);
+		arrCache.push(a);
+	};
+	instanceProto.onCreate = function()
+	{
+		this.cx = this.properties[0];
+		this.cy = this.properties[1];
+		this.cz = this.properties[2];
+		if (!this.recycled)
+			this.arr = allocArray();
+		var a = this.arr;
+		a.length = this.cx;
+		var x, y, z;
+		for (x = 0; x < this.cx; x++)
+		{
+			if (!a[x])
+				a[x] = allocArray();
+			a[x].length = this.cy;
+			for (y = 0; y < this.cy; y++)
+			{
+				if (!a[x][y])
+					a[x][y] = allocArray();
+				a[x][y].length = this.cz;
+				for (z = 0; z < this.cz; z++)
+					a[x][y][z] = 0;
+			}
+		}
+		this.forX = [];
+		this.forY = [];
+		this.forZ = [];
+		this.forDepth = -1;
+	};
+	instanceProto.onDestroy = function ()
+	{
+		var x;
+		for (x = 0; x < this.cx; x++)
+			freeArray(this.arr[x]);		// will recurse down and recycle other arrays
+		cr.clearArray(this.arr);
+	};
+	instanceProto.at = function (x, y, z)
+	{
+		x = Math.floor(x);
+		y = Math.floor(y);
+		z = Math.floor(z);
+		if (isNaN(x) || x < 0 || x > this.cx - 1)
+			return 0;
+		if (isNaN(y) || y < 0 || y > this.cy - 1)
+			return 0;
+		if (isNaN(z) || z < 0 || z > this.cz - 1)
+			return 0;
+		return this.arr[x][y][z];
+	};
+	instanceProto.set = function (x, y, z, val)
+	{
+		x = Math.floor(x);
+		y = Math.floor(y);
+		z = Math.floor(z);
+		if (isNaN(x) || x < 0 || x > this.cx - 1)
+			return;
+		if (isNaN(y) || y < 0 || y > this.cy - 1)
+			return;
+		if (isNaN(z) || z < 0 || z > this.cz - 1)
+			return;
+		this.arr[x][y][z] = val;
+	};
+	instanceProto.getAsJSON = function ()
+	{
+		return JSON.stringify({
+			"c2array": true,
+			"size": [this.cx, this.cy, this.cz],
+			"data": this.arr
+		});
+	};
+	instanceProto.saveToJSON = function ()
+	{
+		return {
+			"size": [this.cx, this.cy, this.cz],
+			"data": this.arr
+		};
+	};
+	instanceProto.loadFromJSON = function (o)
+	{
+		var sz = o["size"];
+		this.cx = sz[0];
+		this.cy = sz[1];
+		this.cz = sz[2];
+		this.arr = o["data"];
+	};
+	instanceProto.setSize = function (w, h, d)
+	{
+		if (w < 0) w = 0;
+		if (h < 0) h = 0;
+		if (d < 0) d = 0;
+		if (this.cx === w && this.cy === h && this.cz === d)
+			return;		// no change
+		this.cx = w;
+		this.cy = h;
+		this.cz = d;
+		var x, y, z;
+		var a = this.arr;
+		a.length = w;
+		for (x = 0; x < this.cx; x++)
+		{
+			if (cr.is_undefined(a[x]))
+				a[x] = allocArray();
+			a[x].length = h;
+			for (y = 0; y < this.cy; y++)
+			{
+				if (cr.is_undefined(a[x][y]))
+					a[x][y] = allocArray();
+				a[x][y].length = d;
+				for (z = 0; z < this.cz; z++)
+				{
+					if (cr.is_undefined(a[x][y][z]))
+						a[x][y][z] = 0;
+				}
+			}
+		}
+	};
+	instanceProto.getForX = function ()
+	{
+		if (this.forDepth >= 0 && this.forDepth < this.forX.length)
+			return this.forX[this.forDepth];
+		else
+			return 0;
+	};
+	instanceProto.getForY = function ()
+	{
+		if (this.forDepth >= 0 && this.forDepth < this.forY.length)
+			return this.forY[this.forDepth];
+		else
+			return 0;
+	};
+	instanceProto.getForZ = function ()
+	{
+		if (this.forDepth >= 0 && this.forDepth < this.forZ.length)
+			return this.forZ[this.forDepth];
+		else
+			return 0;
+	};
+	function Cnds() {};
+	Cnds.prototype.CompareX = function (x, cmp, val)
+	{
+		return cr.do_cmp(this.at(x, 0, 0), cmp, val);
+	};
+	Cnds.prototype.CompareXY = function (x, y, cmp, val)
+	{
+		return cr.do_cmp(this.at(x, y, 0), cmp, val);
+	};
+	Cnds.prototype.CompareXYZ = function (x, y, z, cmp, val)
+	{
+		return cr.do_cmp(this.at(x, y, z), cmp, val);
+	};
+	instanceProto.doForEachTrigger = function (current_event)
+	{
+		this.runtime.pushCopySol(current_event.solModifiers);
+		current_event.retrigger();
+		this.runtime.popSol(current_event.solModifiers);
+	};
+	Cnds.prototype.ArrForEach = function (dims)
+	{
+        var current_event = this.runtime.getCurrentEventStack().current_event;
+		this.forDepth++;
+		var forDepth = this.forDepth;
+		if (forDepth === this.forX.length)
+		{
+			this.forX.push(0);
+			this.forY.push(0);
+			this.forZ.push(0);
+		}
+		else
+		{
+			this.forX[forDepth] = 0;
+			this.forY[forDepth] = 0;
+			this.forZ[forDepth] = 0;
+		}
+		switch (dims) {
+		case 0:
+			for (this.forX[forDepth] = 0; this.forX[forDepth] < this.cx; this.forX[forDepth]++)
+			{
+				for (this.forY[forDepth] = 0; this.forY[forDepth] < this.cy; this.forY[forDepth]++)
+				{
+					for (this.forZ[forDepth] = 0; this.forZ[forDepth] < this.cz; this.forZ[forDepth]++)
+					{
+						this.doForEachTrigger(current_event);
+					}
+				}
+			}
+			break;
+		case 1:
+			for (this.forX[forDepth] = 0; this.forX[forDepth] < this.cx; this.forX[forDepth]++)
+			{
+				for (this.forY[forDepth] = 0; this.forY[forDepth] < this.cy; this.forY[forDepth]++)
+				{
+					this.doForEachTrigger(current_event);
+				}
+			}
+			break;
+		case 2:
+			for (this.forX[forDepth] = 0; this.forX[forDepth] < this.cx; this.forX[forDepth]++)
+			{
+				this.doForEachTrigger(current_event);
+			}
+			break;
+		}
+		this.forDepth--;
+		return false;
+	};
+	Cnds.prototype.CompareCurrent = function (cmp, val)
+	{
+		return cr.do_cmp(this.at(this.getForX(), this.getForY(), this.getForZ()), cmp, val);
+	};
+	Cnds.prototype.Contains = function(val)
+	{
+		var x, y, z;
+		for (x = 0; x < this.cx; x++)
+		{
+			for (y = 0; y < this.cy; y++)
+			{
+				for (z = 0; z < this.cz; z++)
+				{
+					if (this.arr[x][y][z] === val)
+						return true;
+				}
+			}
+		}
+		return false;
+	};
+	Cnds.prototype.IsEmpty = function ()
+	{
+		return this.cx === 0 || this.cy === 0 || this.cz === 0;
+	};
+	Cnds.prototype.CompareSize = function (axis, cmp, value)
+	{
+		var s = 0;
+		switch (axis) {
+		case 0:
+			s = this.cx;
+			break;
+		case 1:
+			s = this.cy;
+			break;
+		case 2:
+			s = this.cz;
+			break;
+		}
+		return cr.do_cmp(s, cmp, value);
+	};
+	pluginProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.Clear = function ()
+	{
+		var x, y, z;
+		for (x = 0; x < this.cx; x++)
+			for (y = 0; y < this.cy; y++)
+				for (z = 0; z < this.cz; z++)
+					this.arr[x][y][z] = 0;
+	};
+	Acts.prototype.SetSize = function (w, h, d)
+	{
+		this.setSize(w, h, d);
+	};
+	Acts.prototype.SetX = function (x, val)
+	{
+		this.set(x, 0, 0, val);
+	};
+	Acts.prototype.SetXY = function (x, y, val)
+	{
+		this.set(x, y, 0, val);
+	};
+	Acts.prototype.SetXYZ = function (x, y, z, val)
+	{
+		this.set(x, y, z, val);
+	};
+	Acts.prototype.Push = function (where, value, axis)
+	{
+		var x = 0, y = 0, z = 0;
+		var a = this.arr;
+		switch (axis) {
+		case 0:	// X axis
+			if (where === 0)	// back
+			{
+				x = a.length;
+				a.push(allocArray());
+			}
+			else				// front
+			{
+				x = 0;
+				a.unshift(allocArray());
+			}
+			a[x].length = this.cy;
+			for ( ; y < this.cy; y++)
+			{
+				a[x][y] = allocArray();
+				a[x][y].length = this.cz;
+				for (z = 0; z < this.cz; z++)
+					a[x][y][z] = value;
+			}
+			this.cx++;
+			break;
+		case 1: // Y axis
+			for ( ; x < this.cx; x++)
+			{
+				if (where === 0)	// back
+				{
+					y = a[x].length;
+					a[x].push(allocArray());
+				}
+				else				// front
+				{
+					y = 0;
+					a[x].unshift(allocArray());
+				}
+				a[x][y].length = this.cz;
+				for (z = 0; z < this.cz; z++)
+					a[x][y][z] = value;
+			}
+			this.cy++;
+			break;
+		case 2:	// Z axis
+			for ( ; x < this.cx; x++)
+			{
+				for (y = 0; y < this.cy; y++)
+				{
+					if (where === 0)	// back
+					{
+						a[x][y].push(value);
+					}
+					else				// front
+					{
+						a[x][y].unshift(value);
+					}
+				}
+			}
+			this.cz++;
+			break;
+		}
+	};
+	Acts.prototype.Pop = function (where, axis)
+	{
+		var x = 0, y = 0, z = 0;
+		var a = this.arr;
+		switch (axis) {
+		case 0:	// X axis
+			if (this.cx === 0)
+				break;
+			if (where === 0)	// back
+			{
+				freeArray(a.pop());
+			}
+			else				// front
+			{
+				freeArray(a.shift());
+			}
+			this.cx--;
+			break;
+		case 1: // Y axis
+			if (this.cy === 0)
+				break;
+			for ( ; x < this.cx; x++)
+			{
+				if (where === 0)	// back
+				{
+					freeArray(a[x].pop());
+				}
+				else				// front
+				{
+					freeArray(a[x].shift());
+				}
+			}
+			this.cy--;
+			break;
+		case 2:	// Z axis
+			if (this.cz === 0)
+				break;
+			for ( ; x < this.cx; x++)
+			{
+				for (y = 0; y < this.cy; y++)
+				{
+					if (where === 0)	// back
+					{
+						a[x][y].pop();
+					}
+					else				// front
+					{
+						a[x][y].shift();
+					}
+				}
+			}
+			this.cz--;
+			break;
+		}
+	};
+	Acts.prototype.Reverse = function (axis)
+	{
+		var x = 0, y = 0, z = 0;
+		var a = this.arr;
+		if (this.cx === 0 || this.cy === 0 || this.cz === 0)
+			return;		// no point reversing empty array
+		switch (axis) {
+		case 0:	// X axis
+			a.reverse();
+			break;
+		case 1: // Y axis
+			for ( ; x < this.cx; x++)
+				a[x].reverse();
+			break;
+		case 2:	// Z axis
+			for ( ; x < this.cx; x++)
+				for (y = 0; y < this.cy; y++)
+					a[x][y].reverse();
+			this.cz--;
+			break;
+		}
+	};
+	function compareValues(va, vb)
+	{
+		if (cr.is_number(va) && cr.is_number(vb))
+			return va - vb;
+		else
+		{
+			var sa = "" + va;
+			var sb = "" + vb;
+			if (sa < sb)
+				return -1;
+			else if (sa > sb)
+				return 1;
+			else
+				return 0;
+		}
+	}
+	Acts.prototype.Sort = function (axis)
+	{
+		var x = 0, y = 0, z = 0;
+		var a = this.arr;
+		if (this.cx === 0 || this.cy === 0 || this.cz === 0)
+			return;		// no point sorting empty array
+		switch (axis) {
+		case 0:	// X axis
+			a.sort(function (a, b) {
+				return compareValues(a[0][0], b[0][0]);
+			});
+			break;
+		case 1: // Y axis
+			for ( ; x < this.cx; x++)
+			{
+				a[x].sort(function (a, b) {
+					return compareValues(a[0], b[0]);
+				});
+			}
+			break;
+		case 2:	// Z axis
+			for ( ; x < this.cx; x++)
+			{
+				for (y = 0; y < this.cy; y++)
+				{
+					a[x][y].sort(compareValues);
+				}
+			}
+			break;
+		}
+	};
+	Acts.prototype.Delete = function (index, axis)
+	{
+		var x = 0, y = 0, z = 0;
+		index = Math.floor(index);
+		var a = this.arr;
+		if (index < 0)
+			return;
+		switch (axis) {
+		case 0:	// X axis
+			if (index >= this.cx)
+				break;
+			freeArray(a[index]);
+			a.splice(index, 1);
+			this.cx--;
+			break;
+		case 1: // Y axis
+			if (index >= this.cy)
+				break;
+			for ( ; x < this.cx; x++)
+			{
+				freeArray(a[x][index]);
+				a[x].splice(index, 1);
+			}
+			this.cy--;
+			break;
+		case 2:	// Z axis
+			if (index >= this.cz)
+				break;
+			for ( ; x < this.cx; x++)
+			{
+				for (y = 0; y < this.cy; y++)
+				{
+					a[x][y].splice(index, 1);
+				}
+			}
+			this.cz--;
+			break;
+		}
+	};
+	Acts.prototype.Insert = function (value, index, axis)
+	{
+		var x = 0, y = 0, z = 0;
+		index = Math.floor(index);
+		var a = this.arr;
+		if (index < 0)
+			return;
+		switch (axis) {
+		case 0:	// X axis
+			if (index > this.cx)
+				return;
+			x = index;
+			a.splice(x, 0, allocArray());
+			a[x].length = this.cy;
+			for ( ; y < this.cy; y++)
+			{
+				a[x][y] = allocArray();
+				a[x][y].length = this.cz;
+				for (z = 0; z < this.cz; z++)
+					a[x][y][z] = value;
+			}
+			this.cx++;
+			break;
+		case 1: // Y axis
+			if (index > this.cy)
+				return;
+			for ( ; x < this.cx; x++)
+			{
+				y = index;
+				a[x].splice(y, 0, allocArray());
+				a[x][y].length = this.cz;
+				for (z = 0; z < this.cz; z++)
+					a[x][y][z] = value;
+			}
+			this.cy++;
+			break;
+		case 2:	// Z axis
+			if (index > this.cz)
+				return;
+			for ( ; x < this.cx; x++)
+			{
+				for (y = 0; y < this.cy; y++)
+				{
+					a[x][y].splice(index, 0, value);
+				}
+			}
+			this.cz++;
+			break;
+		}
+	};
+	Acts.prototype.JSONLoad = function (json_)
+	{
+		var o;
+		try {
+			o = JSON.parse(json_);
+		}
+		catch(e) { return; }
+		if (!o["c2array"])		// presumably not a c2array object
+			return;
+		var sz = o["size"];
+		this.cx = sz[0];
+		this.cy = sz[1];
+		this.cz = sz[2];
+		this.arr = o["data"];
+	};
+	Acts.prototype.JSONDownload = function (filename)
+	{
+		var a = document.createElement("a");
+		if (typeof a.download === "undefined")
+		{
+			var str = 'data:text/html,' + encodeURIComponent("<p><a download='" + filename + "' href=\"data:application/json,"
+				+ encodeURIComponent(this.getAsJSON())
+				+ "\">Download link</a></p>");
+			window.open(str);
+		}
+		else
+		{
+			var body = document.getElementsByTagName("body")[0];
+			a.textContent = filename;
+			a.href = "data:application/json," + encodeURIComponent(this.getAsJSON());
+			a.download = filename;
+			body.appendChild(a);
+			var clickEvent = document.createEvent("MouseEvent");
+			clickEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			a.dispatchEvent(clickEvent);
+			body.removeChild(a);
+		}
+	};
+	pluginProto.acts = new Acts();
+	function Exps() {};
+	Exps.prototype.At = function (ret, x, y_, z_)
+	{
+		var y = y_ || 0;
+		var z = z_ || 0;
+		ret.set_any(this.at(x, y, z));
+	};
+	Exps.prototype.Width = function (ret)
+	{
+		ret.set_int(this.cx);
+	};
+	Exps.prototype.Height = function (ret)
+	{
+		ret.set_int(this.cy);
+	};
+	Exps.prototype.Depth = function (ret)
+	{
+		ret.set_int(this.cz);
+	};
+	Exps.prototype.CurX = function (ret)
+	{
+		ret.set_int(this.getForX());
+	};
+	Exps.prototype.CurY = function (ret)
+	{
+		ret.set_int(this.getForY());
+	};
+	Exps.prototype.CurZ = function (ret)
+	{
+		ret.set_int(this.getForZ());
+	};
+	Exps.prototype.CurValue = function (ret)
+	{
+		ret.set_any(this.at(this.getForX(), this.getForY(), this.getForZ()));
+	};
+	Exps.prototype.Front = function (ret)
+	{
+		ret.set_any(this.at(0, 0, 0));
+	};
+	Exps.prototype.Back = function (ret)
+	{
+		ret.set_any(this.at(this.cx - 1, 0, 0));
+	};
+	Exps.prototype.IndexOf = function (ret, v)
+	{
+		for (var i = 0; i < this.cx; i++)
+		{
+			if (this.arr[i][0][0] === v)
+			{
+				ret.set_int(i);
+				return;
+			}
+		}
+		ret.set_int(-1);
+	};
+	Exps.prototype.LastIndexOf = function (ret, v)
+	{
+		for (var i = this.cx - 1; i >= 0; i--)
+		{
+			if (this.arr[i][0][0] === v)
+			{
+				ret.set_int(i);
+				return;
+			}
+		}
+		ret.set_int(-1);
+	};
+	Exps.prototype.AsJSON = function (ret)
+	{
+		ret.set_string(this.getAsJSON());
+	};
+	pluginProto.exps = new Exps();
+}());
+;
+;
 cr.plugins_.Audio = function(runtime)
 {
 	this.runtime = runtime;
@@ -23850,243 +24559,6 @@ cr.behaviors.DragnDrop = function(runtime)
 }());
 ;
 ;
-cr.behaviors.LOS = function(runtime)
-{
-	this.runtime = runtime;
-};
-(function ()
-{
-	var behaviorProto = cr.behaviors.LOS.prototype;
-	behaviorProto.Type = function(behavior, objtype)
-	{
-		this.behavior = behavior;
-		this.objtype = objtype;
-		this.runtime = behavior.runtime;
-	};
-	var behtypeProto = behaviorProto.Type.prototype;
-	behtypeProto.onCreate = function()
-	{
-		this.obstacleTypes = [];						// object types to check for as obstructions
-	};
-	behtypeProto.findLosBehavior = function (inst)
-	{
-		var i, len, b;
-		for (i = 0, len = inst.behavior_insts.length; i < len; ++i)
-		{
-			b = inst.behavior_insts[i];
-			if (b instanceof cr.behaviors.LOS.prototype.Instance && b.type === this)
-				return b;
-		}
-		return null;
-	};
-	behaviorProto.Instance = function(type, inst)
-	{
-		this.type = type;
-		this.behavior = type.behavior;
-		this.inst = inst;				// associated object instance to modify
-		this.runtime = type.runtime;
-	};
-	var behinstProto = behaviorProto.Instance.prototype;
-	behinstProto.onCreate = function()
-	{
-		this.obstacleMode = this.properties[0];		// 0 = solids, 1 = custom
-		this.range = this.properties[1];
-		this.cone = cr.to_radians(this.properties[2]);
-		this.useCollisionCells = (this.properties[3] !== 0);
-	};
-	behinstProto.onDestroy = function ()
-	{
-	};
-	behinstProto.saveToJSON = function ()
-	{
-		var o = {
-			"r": this.range,
-			"c": this.cone,
-			"t": []
-		};
-		var i, len;
-		for (i = 0, len = this.type.obstacleTypes.length; i < len; i++)
-		{
-			o["t"].push(this.type.obstacleTypes[i].sid);
-		}
-		return o;
-	};
-	behinstProto.loadFromJSON = function (o)
-	{
-		this.range = o["r"];
-		this.cone = o["c"];
-		cr.clearArray(this.type.obstacleTypes);
-		var i, len, t;
-		for (i = 0, len = o["t"].length; i < len; i++)
-		{
-			t = this.runtime.getObjectTypeBySid(o["t"][i]);
-			if (t)
-				this.type.obstacleTypes.push(t);
-		}
-	};
-	behinstProto.tick = function ()
-	{
-	};
-	var candidates = [];
-	var tmpRect = new cr.rect(0, 0, 0, 0);
-	behinstProto.hasLOSto = function (x_, y_)
-	{
-		var startx = this.inst.x;
-		var starty = this.inst.y;
-		var myangle = this.inst.angle;
-		if (this.inst.width < 0)
-			myangle += Math.PI;
-		if (cr.distanceTo(startx, starty, x_, y_) > this.range)
-			return false;		// too far away
-		var a = cr.angleTo(startx, starty, x_, y_);
-		if (cr.angleDiff(myangle, a) > this.cone / 2)
-			return false;		// outside cone of view
-		var i, leni, rinst, solid;
-		tmpRect.set(startx, starty, x_, y_);
-		tmpRect.normalize();
-		if (this.obstacleMode === 0)
-		{
-			if (this.useCollisionCells)
-			{
-				this.runtime.getSolidCollisionCandidates(this.inst.layer, tmpRect, candidates);
-			}
-			else
-			{
-				solid = this.runtime.getSolidBehavior();
-				if (solid)
-					cr.appendArray(candidates, solid.my_instances.valuesRef());
-			}
-			for (i = 0, leni = candidates.length; i < leni; ++i)
-			{
-				rinst = candidates[i];
-				if (!rinst.extra["solidEnabled"] || rinst === this.inst)
-					continue;
-				if (this.runtime.testSegmentOverlap(startx, starty, x_, y_, rinst))
-				{
-					cr.clearArray(candidates);
-					return false;
-				}
-			}
-		}
-		else
-		{
-			if (this.useCollisionCells)
-			{
-				this.runtime.getTypesCollisionCandidates(this.inst.layer, this.type.obstacleTypes, tmpRect, candidates);
-			}
-			else
-			{
-				for (i = 0, leni = this.type.obstacleTypes.length; i < leni; ++i)
-				{
-					cr.appendArray(candidates, this.type.obstacleTypes[i].instances);
-				}
-			}
-			for (i = 0, leni = candidates.length; i < leni; ++i)
-			{
-				rinst = candidates[i];
-				if (rinst === this.inst)
-					continue;
-				if (this.runtime.testSegmentOverlap(startx, starty, x_, y_, rinst))
-				{
-					cr.clearArray(candidates);
-					return false;
-				}
-			}
-		}
-		cr.clearArray(candidates);
-		return true;
-	};
-	function Cnds() {};
-	var ltopick = new cr.ObjectSet();
-	var rtopick = new cr.ObjectSet();
-	Cnds.prototype.HasLOSToObject = function (obj_)
-	{
-		if (!obj_)
-			return false;
-		var i, j, leni, lenj, linst, losbeh, rinst, pick;
-		var lsol = this.runtime.getCurrentConditionObjectType().getCurrentSol();
-		var rsol = obj_.getCurrentSol();
-		var linstances = lsol.getObjects();
-		var rinstances = rsol.getObjects();
-		if (lsol.select_all)
-			cr.clearArray(lsol.else_instances);
-		if (rsol.select_all)
-			cr.clearArray(rsol.else_instances);
-		var inverted = this.runtime.getCurrentCondition().inverted;
-		for (i = 0, leni = linstances.length; i < leni; ++i)
-		{
-			linst = linstances[i];
-			pick = false;
-			losbeh = this.findLosBehavior(linst);
-;
-			for (j = 0, lenj = rinstances.length; j < lenj; ++j)
-			{
-				rinst = rinstances[j];
-				if (linst !== rinst && cr.xor(losbeh.hasLOSto(rinst.x, rinst.y), inverted))
-				{
-					pick = true;
-					rtopick.add(rinst);
-				}
-			}
-			if (pick)
-				ltopick.add(linst);
-		}
-		var lpicks = ltopick.valuesRef();
-		var rpicks = rtopick.valuesRef();
-		lsol.select_all = false;
-		rsol.select_all = false;
-		cr.shallowAssignArray(lsol.instances, lpicks);
-		cr.shallowAssignArray(rsol.instances, rpicks);
-		ltopick.clear();
-		rtopick.clear();
-		return lsol.hasObjects();
-	};
-	Cnds.prototype.HasLOSToPosition = function (x_, y_)
-	{
-		return this.hasLOSto(x_, y_);
-	};
-	behaviorProto.cnds = new Cnds();
-	function Acts() {};
-	Acts.prototype.SetRange = function (r)
-	{
-		this.range = r;
-	};
-	Acts.prototype.SetCone = function (c)
-	{
-		this.cone = cr.to_radians(c);
-	};
-	Acts.prototype.AddObstacle = function (obj_)
-	{
-		var obstacleTypes = this.type.obstacleTypes;
-		if (obstacleTypes.indexOf(obj_) !== -1)
-			return;
-		var i, len, t;
-		for (i = 0, len = obstacleTypes.length; i < len; i++)
-		{
-			t = obstacleTypes[i];
-			if (t.is_family && t.members.indexOf(obj_) !== -1)
-				return;
-		}
-		obstacleTypes.push(obj_);
-	};
-	Acts.prototype.ClearObstacles = function ()
-	{
-		cr.clearArray(this.type.obstacleTypes);
-	};
-	behaviorProto.acts = new Acts();
-	function Exps() {};
-	Exps.prototype.Range = function (ret)
-	{
-		ret.set_float(this.range);
-	};
-	Exps.prototype.ConeOfView = function (ret)
-	{
-		ret.set_float(cr.to_degrees(this.cone));
-	};
-	behaviorProto.exps = new Exps();
-}());
-;
-;
 cr.behaviors.Pin = function(runtime)
 {
 	this.runtime = runtime;
@@ -25201,19 +25673,19 @@ cr.behaviors.wrap = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
+	cr.plugins_.Arr,
 	cr.plugins_.Browser,
-	cr.plugins_.LocalStorage,
 	cr.plugins_.Mouse,
-	cr.plugins_.Sprite,
-	cr.plugins_.Text,
+	cr.plugins_.LocalStorage,
 	cr.plugins_.Touch,
-	cr.plugins_.TiledBg,
 	cr.plugins_.WebStorage,
+	cr.plugins_.TiledBg,
+	cr.plugins_.Text,
+	cr.plugins_.Sprite,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
 	cr.behaviors.custom,
 	cr.behaviors.DragnDrop,
-	cr.behaviors.LOS,
 	cr.behaviors.Sin,
 	cr.behaviors.bound,
 	cr.behaviors.solid,
@@ -25233,6 +25705,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio.prototype.acts.Play,
 	cr.system_object.prototype.acts.SetLayoutScale,
 	cr.system_object.prototype.acts.ResetGlobals,
+	cr.system_object.prototype.acts.ResetPersisted,
 	cr.plugins_.TiledBg.prototype.acts.SetVisible,
 	cr.plugins_.Touch.prototype.cnds.OnTouchObject,
 	cr.plugins_.Audio.prototype.acts.Seek,
@@ -25292,7 +25765,16 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.cnds.IsOutsideLayout,
 	cr.plugins_.Sprite.prototype.cnds.IsOnScreen,
 	cr.plugins_.Audio.prototype.acts.StopAll,
+	cr.behaviors.DragnDrop.prototype.cnds.OnDrop,
+	cr.behaviors.DragnDrop.prototype.cnds.OnDragStart,
+	cr.plugins_.Sprite.prototype.cnds.PickDistance,
+	cr.plugins_.Sprite.prototype.acts.SetBoolInstanceVar,
+	cr.behaviors.DragnDrop.prototype.acts.SetEnabled,
+	cr.plugins_.Sprite.prototype.exps.PickedCount,
+	cr.plugins_.Sprite.prototype.cnds.IsBoolInstanceVarSet,
+	cr.system_object.prototype.cnds.Compare,
 	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
+	cr.system_object.prototype.acts.SetGroupActive,
 	cr.plugins_.Sprite.prototype.acts.SetY,
 	cr.plugins_.Sprite.prototype.cnds.CompareY,
 	cr.behaviors.custom.prototype.acts.SetSpeed,
@@ -25302,25 +25784,24 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Touch.prototype.cnds.IsTouchingObject,
 	cr.plugins_.Sprite.prototype.cnds.CompareX,
 	cr.system_object.prototype.acts.SubVar,
-	cr.system_object.prototype.acts.SetGroupActive,
 	cr.plugins_.Touch.prototype.cnds.OnTouchStart,
 	cr.plugins_.Text.prototype.acts.SetPosToObject,
 	cr.system_object.prototype.exps.newline,
-	cr.plugins_.Sprite.prototype.cnds.IsBoolInstanceVarSet,
-	cr.plugins_.Sprite.prototype.acts.SetBoolInstanceVar,
+	cr.system_object.prototype.cnds.ForEach,
+	cr.plugins_.Arr.prototype.acts.SetXY,
+	cr.plugins_.Sprite.prototype.exps.IID,
 	cr.plugins_.Sprite.prototype.cnds.PickByUID,
 	cr.system_object.prototype.cnds.LayerVisible,
 	cr.system_object.prototype.acts.SaveState,
 	cr.plugins_.Sprite.prototype.acts.SetPos,
 	cr.plugins_.Touch.prototype.exps.X,
 	cr.plugins_.Touch.prototype.exps.Y,
-	cr.system_object.prototype.cnds.Compare,
 	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.behaviors.Bullet.prototype.cnds.CompareSpeed,
 	cr.system_object.prototype.exps.angle,
 	cr.system_object.prototype.cnds.Else,
-	cr.plugins_.Sprite.prototype.cnds.PickDistance,
 	cr.behaviors.Bullet.prototype.exps.AngleOfMotion,
+	cr.plugins_.Sprite.prototype.acts.SetCollisions,
 	cr.plugins_.TiledBg.prototype.acts.Destroy,
 	cr.system_object.prototype.acts.SetLayerVisible,
 	cr.plugins_.Touch.prototype.cnds.OnDoubleTapGestureObject,
@@ -25329,17 +25810,14 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Touch.prototype.cnds.IsInTouch,
 	cr.plugins_.Touch.prototype.cnds.OnTouchEnd,
 	cr.system_object.prototype.exps.choose,
-	cr.plugins_.Mouse.prototype.cnds.IsButtonDown,
-	cr.system_object.prototype.acts.SetTimescale,
-	cr.plugins_.Sprite.prototype.cnds.OnAnyAnimFinished,
-	cr.behaviors.DragnDrop.prototype.cnds.OnDrop,
-	cr.behaviors.DragnDrop.prototype.cnds.OnDragStart,
-	cr.behaviors.LOS.prototype.cnds.HasLOSToObject,
-	cr.behaviors.DragnDrop.prototype.acts.SetEnabled,
-	cr.plugins_.Sprite.prototype.exps.PickedCount,
+	cr.plugins_.Sprite.prototype.cnds.OnDestroyed,
+	cr.plugins_.Arr.prototype.exps.At,
+	cr.plugins_.Arr.prototype.acts.Destroy,
+	cr.plugins_.Sprite.prototype.cnds.PickTopBottom,
 	cr.system_object.prototype.cnds.ForEachOrdered,
 	cr.plugins_.WebStorage.prototype.exps.LocalValue,
 	cr.plugins_.WebStorage.prototype.acts.StoreLocal,
+	cr.plugins_.Sprite.prototype.cnds.OnAnyAnimFinished,
 	cr.system_object.prototype.acts.LoadState,
 	cr.plugins_.WebStorage.prototype.cnds.LocalStorageExists,
 	cr.plugins_.LocalStorage.prototype.acts.ClearStorage,
